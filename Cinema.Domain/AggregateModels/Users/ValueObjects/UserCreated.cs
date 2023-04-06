@@ -13,6 +13,7 @@ public record UserCreated
     private UserCreated(DateTime value) => Value = value;
 
     public static UserCreated Create() => new(DateTime.Now);
+    public static UserCreated CreateWithValue(DateTime value) => new(value);
 
     public override string ToString() => Value.ToString("ss:mm:hh dd/MM/yyyy");
 }

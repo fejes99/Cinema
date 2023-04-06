@@ -18,6 +18,16 @@ public class Movie
     public MovieYear Year { get; private set; }
     public MovieDescription? Description { get; private set; }
 
+    public Movie()
+    {
+        Id = new MovieId(Guid.NewGuid());
+        Name = new MovieName("");
+        Duration = MovieDuration.Create(2);
+        Distributor = new MovieDistributor("");
+        Country = new MovieCountry("");
+        Year = MovieYear.Create(DateTime.Now.Year);
+    }
+
 
     private Movie(MovieName name,
         MovieDirector? director,
@@ -63,5 +73,14 @@ public class Movie
         if (country != null) Country = country;
         if (year != null) Year = year;
         if (description != null) Description = description;
+    }
+
+    public bool HasDefaultValues()
+    {
+        return Name.Value == "" &&
+               Duration.Value == 2 &&
+               Distributor.Value == "" &&
+               Country.Value == "" &&
+               Year.Value == DateTime.Now.Year;
     }
 }

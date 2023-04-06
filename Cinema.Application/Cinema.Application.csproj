@@ -8,11 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Users\Dtos\" />
-    <Folder Include="Common\Users\UseCases\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Cinema.Domain\Cinema.Domain.csproj" />
     <ProjectReference Include="..\Cinema.Infrastructure\Cinema.Infrastructure.csproj" />
   </ItemGroup>

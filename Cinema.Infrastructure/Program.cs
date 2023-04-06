@@ -1,6 +1,5 @@
 ﻿using Cinema.Domain.AggregateModels.Movies;
 using Cinema.Infrastructure;
-using Cinema.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

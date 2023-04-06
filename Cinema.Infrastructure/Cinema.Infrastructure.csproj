@@ -26,4 +26,8 @@
     <ProjectReference Include="..\Cinema.Domain\Cinema.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\Projections\" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,7 @@
 ﻿using Cinema.Domain.AggregateModels.Movies;
+using Cinema.Domain.AggregateModels.Theaters;
+using Cinema.Domain.AggregateModels.Theaters.ProjectionTypes;
+using Cinema.Domain.AggregateModels.Theaters.Seats;
 using Cinema.Domain.AggregateModels.Users;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,6 +20,9 @@ public class DatabaseContext : DbContext
 
     public DbSet<Movie> Movies { get; set; } = null!;
     public DbSet<User> Users { get; set; } = null!;
+    public DbSet<ProjectionType> ProjectionTypes { get; set; } = null!;
+    public DbSet<Theater> Theaters { get; set; } = null!;
+    public DbSet<Seat> Seats { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

@@ -13,6 +13,6 @@ public interface IMovieRepository
     Task<Movie> GetByIdAsync(MovieId movieId);
     Task<Movie> CreateAsync(Movie movie);
     Task<Movie> UpdateAsync(Movie movie);
-    Task DeleteAsync(Movie movie);
+    Task DeleteAsync(MovieId movieId);
     Task<bool> SaveChangesAsync();
 }

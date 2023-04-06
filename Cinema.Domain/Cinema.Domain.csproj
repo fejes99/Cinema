@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Folder Include="AggregateModels\Tickets\" />
-    <Folder Include="AggregateModels\Theaters\" />
     <Folder Include="AggregateModels\Projections\" />
   </ItemGroup>
 

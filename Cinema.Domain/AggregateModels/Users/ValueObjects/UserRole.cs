@@ -1,4 +1,5 @@
 ﻿using Cinema.Domain.AggregateModels.Users.Exceptions;
+using Cinema.Domain.AggregateModels.Users.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,12 @@ public record UserRole
     public static UserRole Create(UserRoleType userRoleType = UserRoleType.LoggedUser)
     {
         string value = userRoleType.ToString();
-
-        if (value != "Admin" && value != "LoggedUser")
-        {
-            throw new UserRoleException($"Invalid user role: {value}");
-        }
-
+        value.ValidateUserRole();
+        return new UserRole(value);
+    }
+    public static UserRole FromString(string value)
+    {
+        value.ValidateUserRole();
         return new UserRole(value);
     }
 }
