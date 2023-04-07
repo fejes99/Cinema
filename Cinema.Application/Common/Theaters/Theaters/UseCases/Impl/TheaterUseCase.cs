@@ -1,11 +1,6 @@
 ﻿using Cinema.Application.Common.Theaters.Theaters.Dtos;
 using Cinema.Application.Common.Theaters.Theaters.Helpers;
 using Cinema.Domain.AggregateModels.Theaters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Application.Common.Theaters.Theaters.UseCases.Impl;
 

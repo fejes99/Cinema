@@ -1,9 +1,5 @@
 ﻿using Cinema.Domain.AggregateModels.Movies.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Cinema.Domain.AggregateModels.Projections;
 
 namespace Cinema.Domain.AggregateModels.Movies;
 
@@ -17,6 +13,7 @@ public class Movie
     public MovieCountry Country { get; private set; }
     public MovieYear Year { get; private set; }
     public MovieDescription? Description { get; private set; }
+    public List<Projection> Projections { get; private set; } = new();
 
     public Movie()
     {

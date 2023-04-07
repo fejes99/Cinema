@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Projections\" />
+    <Folder Include="Common\Movies\Exceptions\" />
   </ItemGroup>
 
 </Project>

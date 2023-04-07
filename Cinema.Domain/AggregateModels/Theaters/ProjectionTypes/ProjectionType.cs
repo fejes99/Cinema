@@ -1,9 +1,5 @@
-﻿using Cinema.Domain.AggregateModels.Theaters.ProjectionTypes.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cinema.Domain.AggregateModels.Projections;
+using Cinema.Domain.AggregateModels.Theaters.ProjectionTypes.ValueObjects;
 
 namespace Cinema.Domain.AggregateModels.Theaters.ProjectionTypes;
 
@@ -12,6 +8,7 @@ public class ProjectionType
     public ProjectionTypeId Id { get; private set; }
     public ProjectionTypeName Name { get; private set; }
     public List<Theater> Theaters { get; private set; } = new();
+    public List<Projection> Projections { get; private set; } = new();
 
     public ProjectionType(ProjectionTypeId id, ProjectionTypeName name)
     {

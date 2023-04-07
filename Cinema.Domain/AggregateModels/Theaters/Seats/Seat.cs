@@ -1,10 +1,5 @@
 ﻿using Cinema.Domain.AggregateModels.Theaters.Seats.ValueObjects;
 using Cinema.Domain.AggregateModels.Theaters.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Domain.AggregateModels.Theaters.Seats;
 

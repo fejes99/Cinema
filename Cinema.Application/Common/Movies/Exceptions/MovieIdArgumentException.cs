@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cinema.Application.Abstractions;
 
 namespace Cinema.Application.Common.Movies.Exceptions;
 
-public class MovieIdArgumentException : ApplicationException
+public class MovieIdArgumentException : ApplicationLayerException
 {
     public MovieIdArgumentException(string? message) : base(message)
     {

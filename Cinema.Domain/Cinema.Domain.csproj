@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AggregateModels\Tickets\" />
-    <Folder Include="AggregateModels\Projections\" />
+    <Folder Include="AggregateModels\Tickets\Exceptions\" />
   </ItemGroup>
 
 </Project>

@@ -20,14 +20,7 @@ public class ProjectionTypeController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<List<ProjectionTypeDto>>> GetProjectionTypes()
     {
-        try
-        {
-            List<ProjectionTypeDto> projectionTypes = await projectionTypeUseCase.GetProjectionTypes();
-            return Ok(projectionTypes);
-        }
-        catch (Exception exception)
-        {
-            return NotFound(exception.Message);
-        }
+        List<ProjectionTypeDto> projectionTypes = await projectionTypeUseCase.GetProjectionTypes();
+        return Ok(projectionTypes);
     }
 }

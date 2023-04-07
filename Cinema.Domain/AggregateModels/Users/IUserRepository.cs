@@ -1,10 +1,4 @@
-﻿
-using Cinema.Domain.AggregateModels.Users.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cinema.Domain.AggregateModels.Users.ValueObjects;
 
 namespace Cinema.Domain.AggregateModels.Users;
 

@@ -2,11 +2,6 @@
 using Cinema.Domain.AggregateModels.Users.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Infrastructure.Common.Users.Configurations;
 
@@ -42,7 +37,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(user => user.Created).HasConversion(
             userCreated => userCreated.Value,
-            value => UserCreated.Create());
+            value => UserCreated.CreateWithValue(value));
 
         builder.Property(user => user.Role).HasConversion(
             userRole => userRole.Value,

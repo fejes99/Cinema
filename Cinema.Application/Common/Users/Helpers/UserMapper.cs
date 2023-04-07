@@ -1,12 +1,6 @@
 ﻿using Cinema.Application.Common.Users.Dtos;
 using Cinema.Domain.AggregateModels.Users;
 using Cinema.Domain.AggregateModels.Users.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Application.Common.Users.Helpers;
 

@@ -1,7 +1,4 @@
-﻿using Cinema.Application.Common.Movies.Dtos;
-using Cinema.Application.Common.Movies.UseCases;
-using Cinema.Application.Common.Movies.UseCases.Impl;
-using Cinema.Application.Common.Users.Dtos;
+﻿using Cinema.Application.Common.Users.Dtos;
 using Cinema.Application.Common.Users.UseCases;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
@@ -24,15 +21,8 @@ public class UserController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<List<UserDto>>> GetUsers()
     {
-        try
-        {
-            List<UserDto> users = await userUseCase.GetUsers();
-            return Ok(users);
-        }
-        catch (Exception exception)
-        {
-            return NotFound(exception.Message);
-        }
+        List<UserDto> users = await userUseCase.GetUsers();
+        return Ok(users);
     }
 
     [HttpGet("{id}")]
@@ -40,31 +30,16 @@ public class UserController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<UserDto>> GetUser([Required] Guid id)
     {
-        try
-        {
-            UserDto user = await userUseCase.GetUserById(id);
-            return Ok(user);
-        }
-        catch (Exception exception)
-        {
-            return NotFound(exception.Message);
-        }
+        UserDto user = await userUseCase.GetUserById(id);
+        return Ok(user);
     }
 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
-    [ProducesResponseType(StatusCodes.Status201Created)]
     public async Task<ActionResult<UserDto>> CreateUser([FromBody] UserCreateDto userCreateDto)
     {
-        try
-        {
-            UserDto createdUser = await userUseCase.CreateUser(userCreateDto);
-            return Created("Movie created", createdUser);
-        }
-        catch (Exception exception)
-        {
-            return NotFound(exception.Message);
-        }
+        UserDto createdUser = await userUseCase.CreateUser(userCreateDto);
+        return Created("User created", createdUser);
     }
 
     [HttpPut("{id}")]
@@ -72,15 +47,8 @@ public class UserController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<UserDto>> UpdateUser([Required] Guid id, [FromBody] UserUpdateDto userUpdateDto)
     {
-        try
-        {
-            UserDto updatedUser = await userUseCase.UpdateUser(id, userUpdateDto);
-            return Ok(updatedUser);
-        }
-        catch (Exception exception)
-        {
-            return NotFound(exception.Message);
-        }
+        UserDto updatedUser = await userUseCase.UpdateUser(id, userUpdateDto);
+        return Ok(updatedUser);
     }
 
     [HttpDelete("{id}")]
@@ -88,14 +56,7 @@ public class UserController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeleteUser([Required] Guid id)
     {
-        try
-        {
-            await userUseCase.DeleteUser(id);
-            return NoContent();
-        }
-        catch (Exception exception)
-        {
-            return NotFound(exception.Message);
-        }
+        await userUseCase.DeleteUser(id);
+        return NoContent();
     }
 }

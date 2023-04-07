@@ -1,13 +1,7 @@
-﻿using Cinema.Domain.AggregateModels.Movies.ValueObjects;
-using Cinema.Domain.AggregateModels.Users;
+﻿using Cinema.Domain.AggregateModels.Users;
 using Cinema.Domain.AggregateModels.Users.ValueObjects;
 using Cinema.Infrastructure.Common.Users.Exceptions;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Infrastructure.Common.Users.Repositories;
 

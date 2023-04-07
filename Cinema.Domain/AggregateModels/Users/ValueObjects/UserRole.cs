@@ -1,10 +1,4 @@
-﻿using Cinema.Domain.AggregateModels.Users.Exceptions;
-using Cinema.Domain.AggregateModels.Users.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cinema.Domain.AggregateModels.Users.Helpers;
 
 namespace Cinema.Domain.AggregateModels.Users.ValueObjects;
 

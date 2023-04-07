@@ -1,11 +1,6 @@
 ﻿using Cinema.Application.Common.Theaters.ProjectionTypes.Dtos;
 using Cinema.Application.Common.Theaters.ProjectionTypes.Helpers;
 using Cinema.Domain.AggregateModels.Theaters.ProjectionTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Application.Common.Theaters.ProjectionTypes.UseCases.Impl
 {

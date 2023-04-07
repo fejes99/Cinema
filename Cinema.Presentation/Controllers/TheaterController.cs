@@ -20,14 +20,7 @@ public class TheaterController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<List<TheaterDto>>> GetTheaters()
     {
-        try
-        {
-            List<TheaterDto> theaters = await theaterUseCase.GetTheaters();
-            return Ok(theaters);
-        }
-        catch (Exception exception)
-        {
-            return NotFound(exception.Message);
-        }
+        List<TheaterDto> theaters = await theaterUseCase.GetTheaters();
+        return Ok(theaters);
     }
 }
