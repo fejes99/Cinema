@@ -1,4 +1,5 @@
 ﻿using Cinema.Application.Common.Tickets.Dtos;
+using Cinema.Application.Common.Users.Helpers;
 using Cinema.Domain.AggregateModels.Projections.ValueObjects;
 using Cinema.Domain.AggregateModels.Theaters.Seats.ValueObjects;
 using Cinema.Domain.AggregateModels.Tickets;
@@ -15,7 +16,19 @@ public static class TicketMapper
             Id = ticket.Id.Value,
             Created = ticket.Created.Value,
             UserId = ticket.UserId.Value,
-            SeatId = ticket.SeatId.Value
+            SeatId = ticket.SeatId.Value,
+            ProjectionId = ticket.ProjectionId.Value,
+        };
+    }
+
+    public static ProjectionTicketDto TicketToProjectionTicketDto(this Ticket ticket)
+    {
+        return new ProjectionTicketDto
+        {
+            Id = ticket.Id.Value,
+            Created = ticket.Created.Value,
+            User = ticket.User.UserToProjectionUserDto()
+
         };
     }
 

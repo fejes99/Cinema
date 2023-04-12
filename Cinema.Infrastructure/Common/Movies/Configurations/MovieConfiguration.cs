@@ -39,10 +39,14 @@ internal class MovieConfiguration : IEntityTypeConfiguration<Movie>
             movieYear => movieYear.Value,
             value => MovieYear.Create(value));
 
+        builder.Property(movie => movie.TrailerUrl).HasConversion(
+            movieTrailerUrl => movieTrailerUrl!.Value,
+            value => new MovieTrailerUrl(value));
+
         builder.Property(movie => movie.Description).HasConversion(
             movieDescription => movieDescription!.Value,
             value => MovieDescription.Create(value));
 
-        //builder.Property(m => m.Description).HasMaxLength(255);
+        builder.HasQueryFilter(movie => !movie.IsDeleted);
     }
 }

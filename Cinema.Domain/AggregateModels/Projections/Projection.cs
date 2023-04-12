@@ -1,9 +1,10 @@
 ﻿using Cinema.Domain.AggregateModels.Movies;
 using Cinema.Domain.AggregateModels.Movies.ValueObjects;
+using Cinema.Domain.AggregateModels.Projections.Exceptions;
+using Cinema.Domain.AggregateModels.Projections.ProjectionTypes;
+using Cinema.Domain.AggregateModels.Projections.ProjectionTypes.ValueObjects;
 using Cinema.Domain.AggregateModels.Projections.ValueObjects;
 using Cinema.Domain.AggregateModels.Theaters;
-using Cinema.Domain.AggregateModels.Theaters.ProjectionTypes;
-using Cinema.Domain.AggregateModels.Theaters.ProjectionTypes.ValueObjects;
 using Cinema.Domain.AggregateModels.Theaters.ValueObjects;
 using Cinema.Domain.AggregateModels.Tickets;
 
@@ -20,6 +21,8 @@ public class Projection
     public ProjectionType ProjectionType { get; private set; }
     public TheaterId TheaterId { get; private set; }
     public Theater Theater { get; private set; }
+    public bool IsDeleted { get; private set; }
+    public bool IsSold { get; private set; }
     public List<Ticket> Tickets { get; private set; }
 
     private Projection(
@@ -35,6 +38,8 @@ public class Projection
         MovieId = movieId;
         ProjectionTypeId = projectionTypeId;
         TheaterId = theaterId;
+        IsDeleted = false;
+        IsSold = false;
     }
 
     public static Projection Create(
@@ -54,5 +59,11 @@ public class Projection
         if(price != null) Price = price;
         if(projectionTypeId != null) ProjectionTypeId = projectionTypeId;
         if(theaterId != null) TheaterId = theaterId;
+    }
+
+    public void Delete()
+    {
+        if (IsDeleted) throw new ProjectionIsDeletedAlreadyException("Projection is already deleted.");
+        if(Tickets.Any()) IsDeleted = true;
     }
 }

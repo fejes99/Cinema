@@ -1,8 +1,5 @@
 ﻿using Cinema.Application.Common.Projections.Dtos;
 using Cinema.Application.Common.Projections.UseCases;
-using Cinema.Application.Common.Users.Dtos;
-using Cinema.Application.Common.Users.UseCases;
-using Cinema.Application.Common.Users.UseCases.Impl;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
@@ -31,17 +28,17 @@ public class ProjectionController : ControllerBase
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ProjectionDto>> GetProjection([Required] Guid id)
+    public async Task<ActionResult<ProjectionDetailsDto>> GetProjection([Required] Guid id)
     {
-        ProjectionDto projection = await projectionUseCase.GetProjectionById(id);
+        ProjectionDetailsDto projection = await projectionUseCase.GetProjectionById(id);
         return Ok(projection);
     }
 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
-    public async Task<ActionResult<ProjectionDto>> CreateProjection([FromBody] ProjectionCreateDto projectionCreateDto)
+    public async Task<ActionResult<ProjectionCreateDto>> CreateProjection([FromBody] ProjectionCreateDto projectionCreateDto)
     {
-        ProjectionDto createdProjection = await projectionUseCase.CreateProjection(projectionCreateDto);
+        ProjectionCreateDto createdProjection = await projectionUseCase.CreateProjection(projectionCreateDto);
         return Created("Projection created", createdProjection);
     }
 

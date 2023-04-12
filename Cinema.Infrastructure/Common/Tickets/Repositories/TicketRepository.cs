@@ -34,7 +34,9 @@ public class TicketRepository : ITicketRepository
 
     public async Task<Ticket> GetByIdAsync(TicketId ticketId)
     {
-        var ticket = await context.Tickets.FirstOrDefaultAsync(ticket => ticket.Id == ticketId);
+        var ticket = await context.Tickets
+            .Include(ticket => ticket.User)
+            .FirstOrDefaultAsync(ticket => ticket.Id == ticketId);
         return ticket!;
     }
 

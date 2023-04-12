@@ -1,7 +1,7 @@
 ﻿using Cinema.Domain.AggregateModels.Movies;
 using Cinema.Domain.AggregateModels.Projections;
+using Cinema.Domain.AggregateModels.Projections.ProjectionTypes;
 using Cinema.Domain.AggregateModels.Theaters;
-using Cinema.Domain.AggregateModels.Theaters.ProjectionTypes;
 using Cinema.Domain.AggregateModels.Theaters.Seats;
 using Cinema.Domain.AggregateModels.Tickets;
 using Cinema.Domain.AggregateModels.Users;

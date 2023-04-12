@@ -8,6 +8,6 @@ public interface IProjectionRepository
     Task<Projection> GetByIdAsync(ProjectionId projectionId);
     Task<Projection> CreateAsync(Projection projection);
     Task<Projection> UpdateAsync(Projection projection);
-    Task DeleteAsync(ProjectionId projectionId);
+    Task DeleteAsync(Projection projection);
     Task<bool> SaveChangesAsync();
 }

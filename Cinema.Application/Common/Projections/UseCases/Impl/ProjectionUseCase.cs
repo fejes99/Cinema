@@ -1,13 +1,9 @@
 ﻿using Cinema.Application.Common.Projections.Dtos;
+using Cinema.Application.Common.Projections.Exceptions;
 using Cinema.Application.Common.Projections.Helpers;
+using Cinema.Domain.AggregateModels.Movies;
 using Cinema.Domain.AggregateModels.Projections;
 using Cinema.Domain.AggregateModels.Projections.ValueObjects;
-using Cinema.Domain.AggregateModels.Users.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Application.Common.Projections.UseCases.Impl;
 
@@ -15,27 +11,37 @@ public class ProjectionUseCase : IProjectionUseCase
 {
     private readonly IProjectionRepository repository;
 
-    public ProjectionUseCase(IProjectionRepository repository)
+    public ProjectionUseCase(IProjectionRepository repository, IMovieRepository movieRepository)
     {
         this.repository = repository;
     }
 
-    public async Task<ProjectionDto> CreateProjection(ProjectionCreateDto projectionCreateDto)
+    public async Task<ProjectionCreateDto> CreateProjection(ProjectionCreateDto projectionCreateDto)
     {
-        Projection createdProjection = await repository.CreateAsync(projectionCreateDto.CreateDtoToProjection());
-        ProjectionDto createdProjectionDto = createdProjection.ProjectionToDto();
-        return createdProjectionDto;
+        await repository.CreateAsync(projectionCreateDto.CreateDtoToProjection());
+        return projectionCreateDto;
     }
 
     public async Task DeleteProjection(Guid id)
     {
-        await repository.DeleteAsync(new ProjectionId(id));
+        Projection projection = await repository.GetByIdAsync(new ProjectionId(id));
+        if (projection == null) throw new ProjectionNotFoundException("Projection not found.");
+        projection.Delete();
+
+        if (projection.IsDeleted)
+        {
+            await repository.UpdateAsync(projection);
+        } 
+        else
+        {
+            await repository.DeleteAsync(projection);
+        }
     }
 
-    public async Task<ProjectionDto> GetProjectionById(Guid id)
+    public async Task<ProjectionDetailsDto> GetProjectionById(Guid id)
     {
         Projection projection = await repository.GetByIdAsync(new ProjectionId(id));
-        ProjectionDto projectionDto = projection.ProjectionToDto();
+        ProjectionDetailsDto projectionDto = projection.ProjectionToDetailsDto();
         return projectionDto;
     }
 

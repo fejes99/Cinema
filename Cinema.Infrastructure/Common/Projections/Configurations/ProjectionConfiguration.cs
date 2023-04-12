@@ -1,7 +1,7 @@
 ﻿using Cinema.Domain.AggregateModels.Movies.ValueObjects;
 using Cinema.Domain.AggregateModels.Projections;
+using Cinema.Domain.AggregateModels.Projections.ProjectionTypes.ValueObjects;
 using Cinema.Domain.AggregateModels.Projections.ValueObjects;
-using Cinema.Domain.AggregateModels.Theaters.ProjectionTypes.ValueObjects;
 using Cinema.Domain.AggregateModels.Theaters.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -20,7 +20,7 @@ internal class ProjectionConfiguration : IEntityTypeConfiguration<Projection>
 
         builder.Property(projection => projection.Time).HasConversion(
             projectionTime => projectionTime.Value,
-            value => ProjectionTime.CreateWithValue(value));
+            value => ProjectionTime.Create(value));
 
         builder.Property(projection => projection.Price).HasConversion(
             projectionPrice => projectionPrice.Value,
@@ -37,5 +37,7 @@ internal class ProjectionConfiguration : IEntityTypeConfiguration<Projection>
         builder.Property(projection => projection.TheaterId).HasConversion(
             projectionTheaterId => projectionTheaterId.Value,
             value => new TheaterId(value));
+
+        builder.HasQueryFilter(projection => !projection.IsDeleted);
     }
 }

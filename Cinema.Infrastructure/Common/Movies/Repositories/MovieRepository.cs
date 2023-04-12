@@ -19,22 +19,27 @@ public class MovieRepository : IMovieRepository
         return movie;
     }
 
-    public async Task DeleteAsync(MovieId movieId)
+    public async Task DeleteAsync(Movie movie)
     {
-        Movie movieToDelete = await GetByIdAsync(movieId);
-        context.Remove(movieToDelete);
+        context.Remove(movie);
         await SaveChangesAsync();
     }
 
 
     public async Task<List<Movie>> GetAllAsync()
     {
-        return await context.Movies.ToListAsync();
+        return await context.Movies
+            .Include(movie => movie.Projections)
+            .ThenInclude(projection => projection.ProjectionType)
+            .ThenInclude(projection => projection.Theaters)
+            .ToListAsync();
     }
 
     public async Task<Movie> GetByIdAsync(MovieId movieId)
     {
-        var movie = await context.Movies.FirstOrDefaultAsync(movie => movie.Id == movieId);
+        var movie = await context.Movies
+            .Include(movie => movie.Projections)
+            .FirstOrDefaultAsync(movie => movie.Id == movieId);
         return movie ?? new Movie();
     }
 

@@ -21,6 +21,18 @@ public static class UserMapper
         };
     }
 
+    public static ProjectionUserDto UserToProjectionUserDto(this User user)
+    {
+        return new ProjectionUserDto
+        {
+            Id = user.Id.Value,
+            FirstName = user.FirstName.Value,
+            LastName = user.LastName.Value,
+            Username = user.Username.Value,
+            Email = user.Email.Value
+        };
+    }
+
     public static User CreateDtoToUser(this UserCreateDto userCreateDto)
     {
         UserFirstName firstName = new UserFirstName(userCreateDto.FirstName);

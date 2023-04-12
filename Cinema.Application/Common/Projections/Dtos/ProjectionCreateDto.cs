@@ -1,12 +1,4 @@
-﻿using Cinema.Application.Common.Movies.Dtos;
-using Cinema.Application.Common.Theaters.ProjectionTypes.Dtos;
-using Cinema.Application.Common.Theaters.Theaters.Dtos;
-using Cinema.Application.Common.Tickets.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cinema.Domain.AggregateModels.Movies;
 
 namespace Cinema.Application.Common.Projections.Dtos;
 

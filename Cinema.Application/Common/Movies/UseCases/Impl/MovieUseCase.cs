@@ -24,7 +24,18 @@ public class MovieUseCase : IMovieUseCase
 
     public async Task DeleteMovie(Guid id)
     {
-        await repository.DeleteAsync(new MovieId(id));
+        Movie movie = await repository.GetByIdAsync(new MovieId(id));
+        if (movie.HasDefaultValues()) throw new MovieNotFoundException("Movie with that id dont exist");
+        movie.Delete();
+        
+        if(movie.IsDeleted)
+        {
+            await repository.UpdateAsync(movie);
+        } 
+        else
+        {
+            await repository.DeleteAsync(movie);
+        }  
     }
 
     public async Task<List<MovieDto>> GetMovies()

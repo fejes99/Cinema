@@ -20,10 +20,9 @@ public class ProjectionRepository : IProjectionRepository
         return projection;
     }
 
-    public async Task DeleteAsync(ProjectionId projectionId)
+    public async Task DeleteAsync(Projection projection)
     {
-        Projection projectionToDelete = await GetByIdAsync(projectionId);
-        context.Remove(projectionToDelete);
+        context.Remove(projection);
         await SaveChangesAsync();
     }
 
@@ -34,12 +33,19 @@ public class ProjectionRepository : IProjectionRepository
             .Include(projection => projection.ProjectionType)
             .Include(projection => projection.Theater)
             .Include(projection => projection.Tickets)
+                .ThenInclude(ticket => ticket.User)
             .ToListAsync();
     }
 
     public async Task<Projection> GetByIdAsync(ProjectionId projectionId)
     {
-        var projection = await context.Projections.FirstOrDefaultAsync(projection => projection.Id == projectionId);
+        var projection = await context.Projections
+            .Include(projection => projection.Movie)
+            .Include(projection => projection.ProjectionType)
+            .Include(projection => projection.Theater)
+            .Include(projection => projection.Tickets)
+                .ThenInclude(ticket => ticket.User)
+            .FirstOrDefaultAsync(projection => projection.Id == projectionId);
         return projection!;
     }
 

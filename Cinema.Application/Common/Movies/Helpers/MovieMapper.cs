@@ -1,6 +1,8 @@
 ﻿using Cinema.Application.Common.Movies.Dtos;
+using Cinema.Application.Common.Projections.Helpers;
 using Cinema.Domain.AggregateModels.Movies;
 using Cinema.Domain.AggregateModels.Movies.ValueObjects;
+using System.Runtime.CompilerServices;
 
 namespace Cinema.Application.Common.Movies.Helpers;
 
@@ -17,7 +19,23 @@ public static class MovieMapper
             Distributor = movie.Distributor.Value,
             Country = movie.Country.Value,
             Year = movie.Year.Value,
-            Description = movie.Description!.Value
+            TrailerUrl = movie.TrailerUrl!.Value,
+            Description = movie.Description!.Value,
+            Projections = movie.Projections.Count > 0 ? movie.Projections.Select(projection => projection.ProjectionToMovieProjectionDto()).ToList() : new()
+        };
+    }
+
+    public static ProjectionMovieDto MovieToProjectionMovieDto(this Movie movie)
+    {
+        return new ProjectionMovieDto
+        {
+            Id = movie.Id.Value,
+            Name = movie.Name.Value,
+            Director = movie.Director!.Value,
+            Duration = movie.Duration.Value,
+            Distributor = movie.Distributor!.Value,
+            Country = movie.Country.Value,
+            Year = movie.Year.Value
         };
     }
 
@@ -30,10 +48,11 @@ public static class MovieMapper
         MovieDistributor distributor = new MovieDistributor(movieCreateDto.Distributor);
         MovieCountry country = new MovieCountry(movieCreateDto.Country);
         MovieYear year = MovieYear.Create(movieCreateDto.Year);
+        MovieTrailerUrl trailerUrl = new MovieTrailerUrl(movieCreateDto.TrailerUrl);
         MovieDescription description = MovieDescription.Create(movieCreateDto.Description!)!;
 
 
-        return Movie.Create(name, director, duration, distributor, country, year, description);
+        return Movie.Create(name, director, duration, distributor, country, year, trailerUrl, description);
     }
 
     public static Movie UpdateMapper(this Movie movie, MovieUpdateDto movieUpdateDto)
@@ -44,6 +63,7 @@ public static class MovieMapper
         MovieDistributor? distributor = null;
         MovieCountry? country = null;
         MovieYear? year = null;
+        MovieTrailerUrl? trailerUrl = null;
         MovieDescription? description = null;
 
         if(!string.IsNullOrEmpty(movieUpdateDto.Name)) name = new MovieName(movieUpdateDto.Name);
@@ -52,9 +72,10 @@ public static class MovieMapper
         if(!string.IsNullOrEmpty(movieUpdateDto.Distributor)) distributor = new MovieDistributor(movieUpdateDto.Distributor);
         if(!string.IsNullOrEmpty(movieUpdateDto.Country)) country = new MovieCountry(movieUpdateDto.Country);
         if(movieUpdateDto.Year > 1) year = MovieYear.Create((int)movieUpdateDto.Year);
+        if(!string.IsNullOrEmpty(movieUpdateDto.TrailerUrl)) trailerUrl = new MovieTrailerUrl(movieUpdateDto.TrailerUrl);
         if(!string.IsNullOrEmpty(movieUpdateDto.Description)) description = MovieDescription.Create(movieUpdateDto.Description);
 
-        movie.Update(name, director, duration, distributor, country, year, description);
+        movie.Update(name, director, duration, distributor, country, year, trailerUrl, description);
         return movie;
     }
 }

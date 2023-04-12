@@ -1,7 +1,7 @@
 ﻿
+using Cinema.Domain.AggregateModels.Projections.ProjectionTypes;
 using Cinema.Domain.AggregateModels.Theaters;
-using Cinema.Domain.AggregateModels.Theaters.ProjectionTypes;
-using Cinema.Domain.AggregateModels.Theaters.ProjectionTypes.ValueObjects;
+using Cinema.Domain.AggregateModels.Projections.ProjectionTypes.ValueObjects;
 using Cinema.Domain.AggregateModels.Theaters.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

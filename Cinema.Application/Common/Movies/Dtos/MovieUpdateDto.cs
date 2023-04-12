@@ -8,5 +8,6 @@ public class MovieUpdateDto
     public string? Distributor { get; set; }
     public string? Country { get; set; }
     public int? Year { get; set; }
+    public string? TrailerUrl { get; set; }
     public string? Description { get; set; }
 }

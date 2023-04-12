@@ -1,5 +1,5 @@
-﻿using Cinema.Application.Common.Theaters.Theaters.Dtos;
-using Cinema.Application.Common.Theaters.Theaters.UseCases;
+﻿using Cinema.Application.Common.Theaters.Dtos;
+using Cinema.Application.Common.Theaters.UseCases;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.Presentation.Controllers;
