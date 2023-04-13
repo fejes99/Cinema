@@ -39,6 +39,8 @@ public class MovieRepository : IMovieRepository
     {
         var movie = await context.Movies
             .Include(movie => movie.Projections)
+            .ThenInclude(projection => projection.ProjectionType)
+            .ThenInclude(projection => projection.Theaters)
             .FirstOrDefaultAsync(movie => movie.Id == movieId);
         return movie ?? new Movie();
     }
