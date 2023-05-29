@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AggregateModels\Tickets\Exceptions\" />
+    <Folder Include="AggregateModels\Theaters\Exceptions\" />
   </ItemGroup>
 
 </Project>

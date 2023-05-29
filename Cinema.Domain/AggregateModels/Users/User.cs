@@ -35,21 +35,19 @@ public class User
         UserLastName lastName,
         Username username,
         UserEmail email,
-        UserPassword password) 
+        UserPassword password)
     => new(firstName, lastName, username, email, password);
 
     public void Update(
         UserFirstName? firstName = null,
         UserLastName? lastName = null,
-        Username? username = null,
-        UserEmail? email = null,
-        UserPassword? password = null)
+        UserPassword? password = null,
+        UserRole? role = null)
     {
         if(firstName != null) FirstName = firstName;
         if(lastName != null) LastName = lastName;
-        if(username != null) Username = username;
-        if(email != null) Email = email;
         if(password != null) Password = password;
+        if (role != null) Role = role;
     }
 }
 

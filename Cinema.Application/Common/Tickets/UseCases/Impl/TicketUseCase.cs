@@ -1,22 +1,31 @@
 ﻿using Cinema.Application.Common.Tickets.Dtos;
 using Cinema.Application.Common.Tickets.Helpers;
+using Cinema.Domain.AggregateModels.Projections;
+using Cinema.Domain.AggregateModels.Projections.ValueObjects;
+using Cinema.Domain.AggregateModels.Theaters.Seats.ValueObjects;
 using Cinema.Domain.AggregateModels.Tickets;
 using Cinema.Domain.AggregateModels.Tickets.ValueObjects;
+using Cinema.Domain.AggregateModels.Users.ValueObjects;
 
 namespace Cinema.Application.Common.Tickets.UseCases.Impl;
 
 public class TicketUseCase : ITicketUseCase
 {
     private readonly ITicketRepository repository;
+    private readonly IProjectionRepository projectionRepository;
 
-    public TicketUseCase(ITicketRepository repository)
+    public TicketUseCase(ITicketRepository repository, IProjectionRepository projectionRepository)
     {
         this.repository = repository;
+        this.projectionRepository = projectionRepository;
     }
 
     public async Task<TicketDto> CreateTicket(TicketCreateDto ticketCreateDto)
     {
-        Ticket createdTicket = await repository.CreateAsync(ticketCreateDto.CreateDtoToTicket());
+        Projection projection = await projectionRepository.GetByIdAsync(new ProjectionId(ticketCreateDto.ProjectionId));
+        Ticket ticketToCreate = Ticket.CreateForProjection(new UserId(ticketCreateDto.UserId), new SeatId(ticketCreateDto.SeatId), projection);
+
+        Ticket createdTicket = await repository.CreateAsync(ticketToCreate);
         TicketDto createdTicketDto = createdTicket.TicketToDto();
         return createdTicketDto;
     }
@@ -26,10 +35,10 @@ public class TicketUseCase : ITicketUseCase
         await repository.DeleteAsync(new TicketId(id));
     }
 
-    public async Task<TicketDto> GetTicketById(Guid id)
+    public async Task<TicketDetailsDto> GetTicketById(Guid id)
     {
         Ticket ticket = await repository.GetByIdAsync(new TicketId(id));
-        TicketDto ticketDto = ticket.TicketToDto();
+        TicketDetailsDto ticketDto = ticket.TicketToDetailsDto();
         return ticketDto;
     }
 

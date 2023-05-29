@@ -4,7 +4,6 @@ using Cinema.Application.Common.Projections.Dtos;
 using Cinema.Application.Common.Projections.ProjectionTypes.Helpers;
 using Cinema.Application.Common.Theaters.Helpers;
 using Cinema.Application.Common.Tickets.Helpers;
-using Cinema.Domain.AggregateModels.Movies.ValueObjects;
 using Cinema.Domain.AggregateModels.Projections;
 using Cinema.Domain.AggregateModels.Projections.ProjectionTypes.ValueObjects;
 using Cinema.Domain.AggregateModels.Projections.ValueObjects;
@@ -22,8 +21,8 @@ public static class ProjectionMapper
             Time = projection.Time.Value,
             Price = projection.Price.Value,
             Movie = projection.Movie.MovieToProjectionMovieDto(),
-            ProjectionType = projection.ProjectionType.Name.Value,
-            Theater = projection.Theater.Name.Value,
+            ProjectionType = projection.ProjectionType.ProjectionTypeToDto(),
+            Theater = projection.Theater.TheaterToDto(),
             IsSold = projection.IsSold
         };
     }
@@ -36,8 +35,8 @@ public static class ProjectionMapper
             Time = projection.Time.Value,
             Price = projection.Price.Value,
             Movie = projection.Movie.MovieToProjectionMovieDto(),
-            ProjectionType = projection.ProjectionType.Name.Value,
-            Theater = projection.Theater.Name.Value,
+            ProjectionType = projection.ProjectionType.ProjectionTypeToDto(),
+            Theater = projection.Theater.TheaterToDto(),
             IsSold = projection.IsSold,
             Tickets = projection.Tickets.Select(ticket => ticket.TicketToProjectionTicketDto()).ToList()
         };
@@ -54,17 +53,6 @@ public static class ProjectionMapper
             Theater = projection.Theater.Name.Value,
             IsSold = projection.IsSold
         };
-    }
-
-    public static Projection CreateDtoToProjection(this ProjectionCreateDto projectionCreateDto)
-    {
-        ProjectionTime time = ProjectionTime.Create(projectionCreateDto.Time);
-        ProjectionPrice price = ProjectionPrice.Create(projectionCreateDto.Price);
-        MovieId movieId = new MovieId(projectionCreateDto.MovieId);
-        ProjectionTypeId projectionTypeId = new ProjectionTypeId(projectionCreateDto.ProjectionTypeId);
-        TheaterId theaterId = new TheaterId(projectionCreateDto.TheaterId);
-
-        return Projection.Create(time, price, movieId, projectionTypeId, theaterId);
     }
 
     public static Projection UpdateMapper(this Projection projection, ProjectionUpdateDto projectionUpdateDto)

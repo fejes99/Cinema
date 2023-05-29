@@ -1,6 +1,4 @@
-﻿using Cinema.Domain.AggregateModels.Movies;
-
-namespace Cinema.Application.Common.Projections.Dtos;
+﻿namespace Cinema.Application.Common.Projections.Dtos;
 
 public class ProjectionCreateDto
 {

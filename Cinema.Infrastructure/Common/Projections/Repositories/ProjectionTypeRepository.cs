@@ -14,6 +14,8 @@ public class ProjectionTypeRepository : IProjectionTypeRepository
 
     public async Task<List<ProjectionType>> GetAllAsync()
     {
-        return await context.ProjectionTypes.ToListAsync();
+        return await context.ProjectionTypes
+            .OrderBy(projectionType => projectionType.Name)
+            .ToListAsync();
     }
 }

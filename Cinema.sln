@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinema.Domain", "Cinema.Dom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinema.Infrastructure", "Cinema.Infrastructure\Cinema.Infrastructure.csproj", "{2618477C-5C64-4AA2-A388-17513ABB18E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Presentation", "Cinema.Presentation\Cinema.Presentation.csproj", "{7606FC50-268D-4370-A180-74E7EC59DE5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinema.Presentation", "Cinema.Presentation\Cinema.Presentation.csproj", "{7606FC50-268D-4370-A180-74E7EC59DE5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{5F34F29F-C8C9-4F50-84BD-74697DC194FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7606FC50-268D-4370-A180-74E7EC59DE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7606FC50-268D-4370-A180-74E7EC59DE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7606FC50-268D-4370-A180-74E7EC59DE5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F34F29F-C8C9-4F50-84BD-74697DC194FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F34F29F-C8C9-4F50-84BD-74697DC194FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F34F29F-C8C9-4F50-84BD-74697DC194FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F34F29F-C8C9-4F50-84BD-74697DC194FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

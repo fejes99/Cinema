@@ -2,23 +2,35 @@
 using Cinema.Application.Common.Projections.Exceptions;
 using Cinema.Application.Common.Projections.Helpers;
 using Cinema.Domain.AggregateModels.Movies;
+using Cinema.Domain.AggregateModels.Movies.ValueObjects;
 using Cinema.Domain.AggregateModels.Projections;
+using Cinema.Domain.AggregateModels.Projections.ProjectionTypes.ValueObjects;
 using Cinema.Domain.AggregateModels.Projections.ValueObjects;
+using Cinema.Domain.AggregateModels.Theaters;
+using Cinema.Domain.AggregateModels.Theaters.ValueObjects;
 
 namespace Cinema.Application.Common.Projections.UseCases.Impl;
 
 public class ProjectionUseCase : IProjectionUseCase
 {
     private readonly IProjectionRepository repository;
+    private readonly ITheaterRepository theaterRepository;
+    private readonly IMovieRepository movieRepository;
 
-    public ProjectionUseCase(IProjectionRepository repository, IMovieRepository movieRepository)
+    public ProjectionUseCase(IProjectionRepository repository, ITheaterRepository theaterRepository, IMovieRepository movieRepository)
     {
         this.repository = repository;
+        this.theaterRepository = theaterRepository;
+        this.movieRepository = movieRepository;
     }
 
     public async Task<ProjectionCreateDto> CreateProjection(ProjectionCreateDto projectionCreateDto)
     {
-        await repository.CreateAsync(projectionCreateDto.CreateDtoToProjection());
+        Theater theater = await theaterRepository.GetByIdAsync(new TheaterId(projectionCreateDto.TheaterId));
+        Movie movie = await movieRepository.GetByIdAsync(new MovieId(projectionCreateDto.MovieId));
+        Projection projectionToCreate = Projection.Create(ProjectionTime.Create(projectionCreateDto.Time),ProjectionPrice.Create(projectionCreateDto.Price), movie, new ProjectionTypeId(projectionCreateDto.ProjectionTypeId), theater);
+
+        await repository.CreateAsync(projectionToCreate);
         return projectionCreateDto;
     }
 
@@ -45,10 +57,10 @@ public class ProjectionUseCase : IProjectionUseCase
         return projectionDto;
     }
 
-    public async Task<List<ProjectionDto>> GetProjections()
+    public async Task<List<ProjectionDetailsDto>> GetProjections()
     {
         List<Projection> projections = await repository.GetAllAsync();
-        List<ProjectionDto> projectionDtos = projections.Select(projection => projection.ProjectionToDto()).ToList();
+        List<ProjectionDetailsDto> projectionDtos = projections.Select(projection => projection.ProjectionToDetailsDto()).ToList();
         return projectionDtos;
     }
 

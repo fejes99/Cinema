@@ -1,7 +1,6 @@
 ﻿using Cinema.Domain.AggregateModels.Movies.Exceptions;
 using Cinema.Domain.AggregateModels.Movies.ValueObjects;
 using Cinema.Domain.AggregateModels.Projections;
-using System.Runtime.CompilerServices;
 
 namespace Cinema.Domain.AggregateModels.Movies;
 

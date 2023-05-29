@@ -1,10 +1,12 @@
 ﻿using Cinema.Application.Common.Projections.ProjectionTypes.Dtos;
 using Cinema.Application.Common.Projections.ProjectionTypes.UseCases;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.Presentation.Controllers;
 
 [Route("api/projectionTypes")]
+[AllowAnonymous]
 [ApiController]
 public class ProjectionTypeController : ControllerBase
 {

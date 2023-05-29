@@ -43,11 +43,22 @@ public class Projection
     }
 
     public static Projection Create(
-        ProjectionTime time,
-        ProjectionPrice price,
-        MovieId movieId,
-        ProjectionTypeId projectionTypeId,
-        TheaterId theaterId) => new(time, price, movieId, projectionTypeId, theaterId);
+    ProjectionTime time,
+    ProjectionPrice price,
+    Movie movie,
+    ProjectionTypeId projectionTypeId,
+    Theater theater)
+    {
+        if (!theater.IsFreeDuring(time.Value, TimeSpan.FromMinutes(movie.Duration.Value)))
+        {
+            throw new ProjectionTimeOverlapException("The theater is not available for the given projection time.");
+        }
+
+
+        var projection = new Projection(time, price, movie.Id, projectionTypeId, theater.Id);
+        return projection;
+    }
+
 
     public void Update(
         ProjectionTime? time = null,
@@ -65,5 +76,10 @@ public class Projection
     {
         if (IsDeleted) throw new ProjectionIsDeletedAlreadyException("Projection is already deleted.");
         if(Tickets.Any()) IsDeleted = true;
+    }
+
+    public bool CanSellTickets()
+    {
+        return !IsDeleted && !IsSold && Time.Value > DateTime.UtcNow;
     }
 }

@@ -1,11 +1,13 @@
 ﻿using Cinema.Application.Common.Tickets.Dtos;
 using Cinema.Application.Common.Tickets.UseCases;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace Cinema.Presentation.Controllers;
 
 [Route("api/tickets")]
+[AllowAnonymous]
 [ApiController]
 public class TicketController : ControllerBase
 {
@@ -28,9 +30,9 @@ public class TicketController : ControllerBase
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<TicketDto>> GetTicket([Required] Guid id)
+    public async Task<ActionResult<TicketDetailsDto>> GetTicket([Required] Guid id)
     {
-        TicketDto ticket = await ticketUseCase.GetTicketById(id);
+        TicketDetailsDto ticket = await ticketUseCase.GetTicketById(id);
         return Ok(ticket);
     }
 

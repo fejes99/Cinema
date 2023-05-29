@@ -1,4 +1,5 @@
-﻿using Cinema.Application.Common.Users.Dtos;
+﻿using Cinema.Application.Common.Auth.Dtos;
+using Cinema.Application.Common.Users.Dtos;
 using Cinema.Application.Common.Users.Helpers;
 using Cinema.Domain.AggregateModels.Users;
 using Cinema.Domain.AggregateModels.Users.ValueObjects;
@@ -14,9 +15,9 @@ public class UserUseCase : IUserUseCase
         this.repository = repository;
     }
 
-    public async Task<UserDto> CreateUser(UserCreateDto userCreateDto)
+    public async Task<UserDto> CreateUser(RegisterDataDto registerDataDto)
     {
-        User createdUser = await repository.CreateAsync(userCreateDto.CreateDtoToUser());
+        User createdUser = await repository.CreateAsync(registerDataDto.registerDtoToUser());
         UserDto createdUserDto = createdUser.UserToDto();
         return createdUserDto;
     }
@@ -40,10 +41,26 @@ public class UserUseCase : IUserUseCase
         return userDtos;
     }
 
+    public async Task<UserDto> UpdatePersonalData(Guid id, UserUpdateDto userUpdateDto)
+    {
+        User userToUpdate = await repository.GetByIdAsync(new UserId(id));
+        User updatedUser = await repository.UpdateAsync(userToUpdate.UpdateMapper(userUpdateDto));
+        UserDto updatedUserDto = updatedUser.UserToDto();
+        return updatedUserDto;
+    }
+
     public async Task<UserDto> UpdateUser(Guid id, UserUpdateDto userUpdateDto)
     {
         User userToUpdate = await repository.GetByIdAsync(new UserId(id));
         User updatedUser = await repository.UpdateAsync(userToUpdate.UpdateMapper(userUpdateDto));
+        UserDto updatedUserDto = updatedUser.UserToDto();
+        return updatedUserDto;
+    }
+
+    public async Task<UserDto> UpdateUserRole(Guid id, UserRoleDto userRole)
+    {
+        User userToUpdate = await repository.GetByIdAsync(new UserId(id));
+        User updatedUser = await repository.UpdateAsync(userToUpdate.UpdateMapper(userRole.UserRoleDtoToUpdateDto()));
         UserDto updatedUserDto = updatedUser.UserToDto();
         return updatedUserDto;
     }

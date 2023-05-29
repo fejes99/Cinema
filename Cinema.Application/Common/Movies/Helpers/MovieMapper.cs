@@ -2,7 +2,6 @@
 using Cinema.Application.Common.Projections.Helpers;
 using Cinema.Domain.AggregateModels.Movies;
 using Cinema.Domain.AggregateModels.Movies.ValueObjects;
-using System.Runtime.CompilerServices;
 
 namespace Cinema.Application.Common.Movies.Helpers;
 
@@ -21,7 +20,7 @@ public static class MovieMapper
             Year = movie.Year.Value,
             TrailerUrl = movie.TrailerUrl!.Value,
             Description = movie.Description!.Value,
-            Projections = movie.Projections.Count > 0 ? movie.Projections.Select(projection => projection.ProjectionToMovieProjectionDto()).ToList() : new()
+            Projections = movie.Projections.Count > 0 ? movie.Projections.Select(projection => projection.ProjectionToDetailsDto()).ToList() : new()
         };
     }
 

@@ -12,6 +12,7 @@ internal class TicketConfiguration : IEntityTypeConfiguration<Ticket>
 {
     public void Configure(EntityTypeBuilder<Ticket> builder)
     {
+
         builder.HasKey(ticket => ticket.Id);
 
         builder.Property(ticket => ticket.Id).HasConversion(

@@ -1,4 +1,5 @@
-﻿using Cinema.Application.Common.Users.Dtos;
+﻿using Cinema.Application.Common.Auth.Dtos;
+using Cinema.Application.Common.Users.Dtos;
 using Cinema.Domain.AggregateModels.Users;
 using Cinema.Domain.AggregateModels.Users.ValueObjects;
 
@@ -15,7 +16,6 @@ public static class UserMapper
             LastName = user.LastName.Value,
             Username = user.Username.Value,
             Email = user.Email.Value,
-            Password = user.Password.Value,
             Created = user.Created.Value,
             Role = user.Role.Value
         };
@@ -33,32 +33,38 @@ public static class UserMapper
         };
     }
 
-    public static User CreateDtoToUser(this UserCreateDto userCreateDto)
+    public static User registerDtoToUser(this RegisterDataDto registerDataDto)
     {
-        UserFirstName firstName = new UserFirstName(userCreateDto.FirstName);
-        UserLastName lastName = new UserLastName(userCreateDto.LastName);
-        Username username = Username.Create(userCreateDto.Username);
-        UserEmail email = UserEmail.Create(userCreateDto.Email);
-        UserPassword password = UserPassword.Create(userCreateDto.Password);
+        UserFirstName firstName = new UserFirstName(registerDataDto.FirstName);
+        UserLastName lastName = new UserLastName(registerDataDto.LastName);
+        Username username = Username.Create(registerDataDto.Username);
+        UserEmail email = UserEmail.Create(registerDataDto.Email);
+        UserPassword password = UserPassword.Create(registerDataDto.Password);
 
         return User.Create(firstName, lastName, username, email, password);
+    }
+
+    public static UserUpdateDto UserRoleDtoToUpdateDto(this UserRoleDto userRoleDto)
+    {
+        return new UserUpdateDto
+        {
+            Role = userRoleDto.Role
+        };
     }
 
     public static User UpdateMapper(this User user, UserUpdateDto userUpdateDto)
     {
         UserFirstName? firstName = null;
         UserLastName? lastName = null;
-        Username? username = null;
-        UserEmail? email = null;
         UserPassword? password = null;
+        UserRole? role = null;
 
-        if(!string.IsNullOrEmpty(userUpdateDto.FirstName)) firstName = new UserFirstName(userUpdateDto.FirstName);
+        if (!string.IsNullOrEmpty(userUpdateDto.FirstName)) firstName = new UserFirstName(userUpdateDto.FirstName);
         if(!string.IsNullOrEmpty(userUpdateDto.LastName)) lastName = new UserLastName(userUpdateDto.LastName);
-        if(!string.IsNullOrEmpty(userUpdateDto.Username)) username = Username.Create(userUpdateDto.Username);
-        if(!string.IsNullOrEmpty(userUpdateDto.Email)) email = UserEmail.Create(userUpdateDto.Email);
         if(!string.IsNullOrEmpty(userUpdateDto.Password)) password = UserPassword.Create(userUpdateDto.Password);
+        if(!string.IsNullOrEmpty(userUpdateDto.Role)) role = UserRole.FromString(userUpdateDto.Role);
 
-        user.Update(firstName, lastName, username, email, password);
+        user.Update(firstName, lastName,password, role);
         return user;
 
     }

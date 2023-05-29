@@ -1,5 +1,6 @@
 ﻿using Cinema.Application.Common.Users.Dtos;
 using Cinema.Application.Common.Users.UseCases;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
@@ -26,20 +27,13 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [AllowAnonymous]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<UserDto>> GetUser([Required] Guid id)
     {
         UserDto user = await userUseCase.GetUserById(id);
         return Ok(user);
-    }
-
-    [HttpPost]
-    [ProducesResponseType(StatusCodes.Status201Created)]
-    public async Task<ActionResult<UserDto>> CreateUser([FromBody] UserCreateDto userCreateDto)
-    {
-        UserDto createdUser = await userUseCase.CreateUser(userCreateDto);
-        return Created("User created", createdUser);
     }
 
     [HttpPut("{id}")]

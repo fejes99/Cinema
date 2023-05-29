@@ -5,14 +5,14 @@ namespace Cinema.Domain.AggregateModels.Users.ValueObjects;
 public enum UserRoleType
 {
     Admin,
-    LoggedUser
+    User
 }
 
 public record UserRole
 {
     public string Value { get; init; }
     private UserRole(string value) => Value = value;
-    public static UserRole Create(UserRoleType userRoleType = UserRoleType.LoggedUser)
+    public static UserRole Create(UserRoleType userRoleType = UserRoleType.User)
     {
         string value = userRoleType.ToString();
         value.ValidateUserRole();

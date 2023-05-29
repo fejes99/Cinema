@@ -23,13 +23,22 @@ public class UserRepository : IUserRepository
     public async Task DeleteAsync(UserId userId)
     {
         User userToDelete = await GetByIdAsync(userId);
+        if(userToDelete.Role.Value != UserRoleType.Admin.ToString())
+        {
         context.Remove(userToDelete);
         await SaveChangesAsync();
+        }
     }
 
     public async Task<List<User>> GetAllAsync()
     {
-        return await context.Users.ToListAsync();
+        return await context.Users.OrderByDescending(user=> user.Created).ToListAsync();
+    }
+
+    public async Task<User> GetByEmailAsync(string email)
+    {
+        var user = await context.Users.FirstOrDefaultAsync(user => user.Email == UserEmail.Create(email));
+        return user ?? throw new UserDontExistInDatabaseException("User with given Id dont exist in Database");
     }
 
     // Todo: Handle default

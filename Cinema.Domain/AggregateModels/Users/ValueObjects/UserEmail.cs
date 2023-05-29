@@ -1,6 +1,4 @@
-﻿using Cinema.Domain.AggregateModels.Users.Exceptions;
-
-namespace Cinema.Domain.AggregateModels.Users.ValueObjects;
+﻿namespace Cinema.Domain.AggregateModels.Users.ValueObjects;
 
 public record UserEmail
 {
@@ -10,7 +8,7 @@ public record UserEmail
 
     public static UserEmail Create(string value)
     {
-        if (!System.Text.RegularExpressions.Regex.IsMatch(value, mailPattern)) throw new EmailRegexException("Invalid email format.");
+        //if (!System.Text.RegularExpressions.Regex.IsMatch(value, mailPattern)) throw new EmailRegexException("Invalid email format.");
         return new UserEmail(value);
     }
 }

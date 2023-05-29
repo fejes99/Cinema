@@ -18,5 +18,23 @@ public class Theater
         Id = id;
         Name = name;
     }
+
+    public bool IsFreeDuring(DateTime startTime, TimeSpan duration)
+    {
+        DateTime projectionDate = startTime.Date;
+        DateTime projectionEndTime = startTime + duration;
+
+        foreach (Projection p in Projections)
+        {
+            if (p.Time.Value.Date == projectionDate && p.Time.OverlapsWith(startTime, projectionEndTime))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
     public static Theater Seed(TheaterId id, TheaterName name) => new(id, name);
 }

@@ -59,7 +59,7 @@ namespace Cinema.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("50394dce-9d82-4834-bbe2-6fa02aa41440"),
+                            Id = new Guid("aa9f94a6-3388-45d9-9101-f1ec24e823ad"),
                             Country = "USA",
                             Description = "Nakon katastrofalne nesreće na nepoznatoj planeti, pilot Mils (Adam Drajver) ubrzo otkriva da je zapravo bio nasukan na planetu Zemlju… pre 65 miliona godina.",
                             Director = "Scott Beck",
@@ -72,7 +72,7 @@ namespace Cinema.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f68a0b29-91b2-4884-ba25-81f18a3b7ac6"),
+                            Id = new Guid("4c4c4b8c-df57-4db1-8054-7ce438b04e4f"),
                             Country = "USA",
                             Description = "Nakon što je dominirao bokserskim svetom, Adonis Krid je napredovao u karijeri i porodičnom životu. Kada je prijatelj iz detinjstva i bivši boksersko čudo.",
                             Director = "Michael B. Jordan",
@@ -85,7 +85,7 @@ namespace Cinema.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a7b9853d-63a0-4179-9a72-461169e9bee9"),
+                            Id = new Guid("4004fea8-74d2-4a71-a3c8-f05c36536907"),
                             Country = "Serbia",
                             Description = "Priča je smeštena u četiri dana i prati Vuka, tridesetogodišnjeg povratnika iz zatvora koji, gonjen samoubistvom najboljeg druga, pokušava da spase njegovog mlađeg brata na veče godišnjice samoubistva.",
                             Director = "Luka Mihailović",
@@ -98,7 +98,7 @@ namespace Cinema.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c5f7ed44-e040-4ac7-874e-e3de5c33ed08"),
+                            Id = new Guid("3b3e3990-3d6a-4aaf-b0e2-ed3eca4261fd"),
                             Country = "USA",
                             Description = "Mišel i Alen su u vezi. Odlučuju da pozovu svoje roditelje da se konačno sretnu kako bi se upoznali pre braka. Ispostavilo se da se roditelji već dobro poznaju, što dovodi do različitih mišljenja o braku.",
                             Director = "Michael Jacobs",
@@ -111,7 +111,7 @@ namespace Cinema.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("895e5007-06ee-4126-809c-c38650fdedc0"),
+                            Id = new Guid("c88c34e4-03e5-490e-a22c-0067fd122f73"),
                             Country = "USA",
                             Description = "Nakon poslednjih ubistava koje je počinio Goustfejs, četvoro preživelih napuštaju Vudsboro i započinju novo poglavlje. U filmu VRISAK 6 Melisa Berera („Sem Karpenter“), Jasmin Savoj Braun („Mindi Miks-Martin“), Mejson Guding („Čed Miks-Martin), Džena Ortega („Tara Karpenter“), Hajden Panetir („Kirbi Rid“) i Kortni Koks („Gejl Veders“) vraćaju se svojim ulogama u ovoj franšizi, zajedno sa Džekom Čempionom, Henrijem Černijem, Lijanom Liberato, Dermotom Malronijem, Devinom Nekodom, Tonijem Revolorijem, Džošom Segarom i Samarom Viving.",
                             Director = "Matt Bettinelli-Olpin",
@@ -124,7 +124,7 @@ namespace Cinema.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e5faae3f-06a2-4ea1-9ac2-41a162039100"),
+                            Id = new Guid("7cc6f3c7-a0fc-4440-8658-9fded1dcc9f4"),
                             Country = "USA",
                             Description = "Radnja novog filma odvija se širom sveta i donosi akciju posebne vrste. Džon Vik se suočava sa svojim najsmrtonosnijim protivnicima dosad u nadolazećem četvrtom nastavku serijala.",
                             Director = "Chad Stahelski",
@@ -137,7 +137,7 @@ namespace Cinema.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("857fd540-c94d-4147-8300-a2cf2bd65e7b"),
+                            Id = new Guid("10c86ef1-7e21-441f-8d62-e3054cff95f5"),
                             Country = "USA",
                             Description = "Šarmantni lopov i grupa nesvakidašnjih avanturista upustili su se u epsku pljačku kako bi vratili izgubljenu relikviju. Međutim, kada se sukobe sa pogrešnim ljudima, stvari kreću po zlu.",
                             Director = "Jonathan Goldstein",
@@ -150,20 +150,20 @@ namespace Cinema.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c515105b-be02-4815-bbaf-cbf46a2ca9c3"),
+                            Id = new Guid("ec928e1d-ce3a-4d3f-86e8-0d589a8c68c5"),
                             Country = "USA",
                             Description = "Godina je 50. pne. Kineska carica je upravo zatvorena nakon državnog udara koji je podstaknuo Deng Tsin Kin, izdajnički princ. Uz pomoć Finaltesisa, feničanskog trgovca i njenog vernog telohranitelja Mai Vei, jedina ćerka carice, princeza Sas-Ji beži u Galiju da zatraži pomoć od dva hrabra ratnika Asteriksa i Obeliksa, koji su obdareni nadljudskom snagom zahvaljujući svom magičnom napitku. Naša dva nerazdvojna heroja rado prihvataju da pomognu princezi da spase svoju majku i oslobodi svoju zemlju. I tako počinje veliko putovanje i avantura na putu za Kinu. Ali Cezar i njegova moćna vojska, žedni novog osvajanja, takođe idu ka Srednjem kraljevstvu...",
                             Director = "Guillaume Canet",
                             Distributor = "Blitz Film Video doo",
                             Duration = 112,
                             IsDeleted = false,
-                            Name = "Astérix & Obélix: L'Empire du Milieu",
+                            Name = "Asterix & Obelix: L'Empire du Milieu",
                             TrailerUrl = "https://www.youtube.com/watch?v=E1-qmncJ5zw&ab_channel=BlitzFilmSrbija",
                             Year = 2022
                         },
                         new
                         {
-                            Id = new Guid("99bdf360-6cb1-4a9a-a2ce-9bd38dc67ffb"),
+                            Id = new Guid("23e263bd-30fa-47f4-bbf0-013657b1c507"),
                             Country = "USA",
                             Description = "Zasnovan na komičnom i pokretačkom bestseleru Njujork Tajmsa, film Čovek zvani Oto govori o Otou Andersonu (Tom Henks), mrzovoljnom udovcu kome radost donosi jedino kritikovanje i osuđivanje svojih ogorčenih komšija.",
                             Director = "Marc Forster",
@@ -176,7 +176,7 @@ namespace Cinema.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("70b62b1f-58dd-4e54-a7c8-f4a54daaa93d"),
+                            Id = new Guid("b4943141-f23c-4b27-8280-7bb6fae9e71b"),
                             Country = "USA",
                             Description = "Oskarovska ekipa filma, predvođena Ben Aflekom i Met Dejmonom, u filmu o jednom od najuticajnijih sportskih brendova svih vremena. Priča o legendarnoj patici koja je oduševila Džordana i \"spasila\" Najk! Film nas vraća u period osamdesetih godina, a Met Dejmon tumači lik Sonija Vakare, zaslužnog za potpisivanje ugovora s tada mladom košarkaškom zvezdom Majkl Džordanom. Ben Aflek je u ulozi suosnivača Najka, legendarnog Fila Najta, Džejson Bejtman  je u ulozi Roba Strasera – njegovog direktora marketinga, dok je Vajola Dejvis u ulozi beskompromisne majke koja zna vrednost neizmernog talenta svog sina i košarkaškog fenomena koji će postati najveća sportska legenda svih vremena. U filmu pratimo Vakarovo nastojanje da stekne poverenje Džordanove porodice, trenera i najbližih saradnika s namerom da uveri tada veoma mladu NBA zvezdu u usponu da potpiše partnerski ugovor. Ugovor koji je Najku osigurao poziciju najvećeg brenda sportske odeće i obuće danas.",
                             Director = "Ben Affleck",
@@ -277,445 +277,445 @@ namespace Cinema.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("60728b17-d01c-45ea-a65b-53b0ccab9600"),
+                            Id = new Guid("74ef9938-6135-44ea-9577-e21b88052f85"),
                             Number = 1,
                             TheaterId = new Guid("f1cbab66-97ab-4cbe-a2ec-b4d84dde9bb3")
                         },
                         new
                         {
-                            Id = new Guid("270d9e44-4ba5-4e82-97d4-5500a50640ca"),
+                            Id = new Guid("d890fe82-1c10-47e6-a58f-d2cc20a1880a"),
                             Number = 2,
                             TheaterId = new Guid("f1cbab66-97ab-4cbe-a2ec-b4d84dde9bb3")
                         },
                         new
                         {
-                            Id = new Guid("7bd3bd10-01be-49b0-8caf-9ba703282541"),
+                            Id = new Guid("1b895433-f86e-47a1-b39a-f4743d4dd28d"),
                             Number = 3,
                             TheaterId = new Guid("f1cbab66-97ab-4cbe-a2ec-b4d84dde9bb3")
                         },
                         new
                         {
-                            Id = new Guid("352455bb-7038-4b30-807f-9cd6f24e697c"),
+                            Id = new Guid("4e4cb5eb-4a3e-473b-ba43-03cc8d41146a"),
                             Number = 4,
                             TheaterId = new Guid("f1cbab66-97ab-4cbe-a2ec-b4d84dde9bb3")
                         },
                         new
                         {
-                            Id = new Guid("8d65c230-0028-47c7-990d-4e161b157b69"),
+                            Id = new Guid("cee74c84-28f7-40a9-8306-bc584311899a"),
                             Number = 1,
                             TheaterId = new Guid("52900eaf-4ba1-40a1-aaa9-c564e532afa8")
                         },
                         new
                         {
-                            Id = new Guid("e820f4ed-2a44-4c5d-a8cc-bc104229eb4e"),
+                            Id = new Guid("ba334433-4889-4de7-8c2d-09364a78d850"),
                             Number = 2,
                             TheaterId = new Guid("52900eaf-4ba1-40a1-aaa9-c564e532afa8")
                         },
                         new
                         {
-                            Id = new Guid("fde55c47-4262-43cd-9cdb-1b5a3640c261"),
+                            Id = new Guid("ac4c8b68-b6d8-4019-bad6-f2f3468b2643"),
                             Number = 3,
                             TheaterId = new Guid("52900eaf-4ba1-40a1-aaa9-c564e532afa8")
                         },
                         new
                         {
-                            Id = new Guid("a9032a94-6a77-463d-a019-558029b9acac"),
+                            Id = new Guid("ff760ed3-c6b1-4462-bc35-22654d60b0ca"),
                             Number = 4,
                             TheaterId = new Guid("52900eaf-4ba1-40a1-aaa9-c564e532afa8")
                         },
                         new
                         {
-                            Id = new Guid("d99c5b1c-0d70-4212-b3f9-17e4431a2251"),
+                            Id = new Guid("94aad96c-74e3-4c98-9626-2f8c3dcbbb4a"),
                             Number = 5,
                             TheaterId = new Guid("52900eaf-4ba1-40a1-aaa9-c564e532afa8")
                         },
                         new
                         {
-                            Id = new Guid("e6aa9925-d1e6-49eb-aa81-51d6559284c9"),
+                            Id = new Guid("01449d1b-e1f4-41e8-83c0-542a7c9e33c2"),
                             Number = 6,
                             TheaterId = new Guid("52900eaf-4ba1-40a1-aaa9-c564e532afa8")
                         },
                         new
                         {
-                            Id = new Guid("2f613abc-0b73-427e-bcf6-2483ee5e2db4"),
+                            Id = new Guid("87bf0088-380f-43ef-a0bc-e3979f6dad44"),
                             Number = 7,
                             TheaterId = new Guid("52900eaf-4ba1-40a1-aaa9-c564e532afa8")
                         },
                         new
                         {
-                            Id = new Guid("e7110e26-1bba-44f9-a382-11b9467f31a0"),
+                            Id = new Guid("60776fef-6417-44c5-9ac5-036d83d82933"),
                             Number = 8,
                             TheaterId = new Guid("52900eaf-4ba1-40a1-aaa9-c564e532afa8")
                         },
                         new
                         {
-                            Id = new Guid("7766e061-dc2d-4456-8f8c-661fa2d00a1a"),
+                            Id = new Guid("3c0790bd-f60e-4c0d-82b7-2d2995bfeab9"),
                             Number = 9,
                             TheaterId = new Guid("52900eaf-4ba1-40a1-aaa9-c564e532afa8")
                         },
                         new
                         {
-                            Id = new Guid("fbcea388-6235-48d7-99d4-2bb7497d0645"),
+                            Id = new Guid("1f43615a-3fca-4a2c-b800-7c1cae161be8"),
                             Number = 10,
                             TheaterId = new Guid("52900eaf-4ba1-40a1-aaa9-c564e532afa8")
                         },
                         new
                         {
-                            Id = new Guid("f250575a-eca4-4363-90ae-54955b3c8d61"),
+                            Id = new Guid("fccb650b-14ba-49e2-9f5b-5f36c52ef1df"),
                             Number = 1,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("2a0c003d-a75d-4fce-ab53-07c5e95cf24a"),
+                            Id = new Guid("15e57a3c-059c-4193-aacd-8e10fd59f38f"),
                             Number = 2,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("40fd2b3a-cecf-4d8f-8bee-f38cdda82f5d"),
+                            Id = new Guid("3bc17172-b28c-4e6c-908c-7740f5717d52"),
                             Number = 3,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("c09b24a3-203c-49bc-b026-a13f8ae6ace2"),
+                            Id = new Guid("725399b6-9169-4ed4-9e19-854fa89a9307"),
                             Number = 4,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("91d66dbb-f6ab-447b-b0bf-d0ed79317cd8"),
+                            Id = new Guid("d484a36c-684c-491a-9dc1-cceefa5fa812"),
                             Number = 5,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("2607e2d0-06fa-415c-af7d-bcbd179a953f"),
+                            Id = new Guid("b2019762-2c83-44a2-a8c3-80fce9fc6bd3"),
                             Number = 6,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("65699d10-112e-4ad9-8731-8fff408c638f"),
+                            Id = new Guid("d2768ac8-935b-4dd8-a3fc-6b83c46ec4a0"),
                             Number = 7,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("f4386030-553f-453d-984c-abe1c35cefc7"),
+                            Id = new Guid("6fecc9b6-ef50-4c31-bfc1-1de27cdedc9e"),
                             Number = 8,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("acf8011a-1d6a-42b5-9e8f-5211309fd2b5"),
+                            Id = new Guid("e04e566c-2d87-404f-be14-2bd4d2ebe3a9"),
                             Number = 9,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("74442023-901f-4179-acc5-4cda82351eca"),
+                            Id = new Guid("c2382137-578c-4f68-836f-509db9c8750c"),
                             Number = 10,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("1c87ffa3-6f56-47a7-b2c8-84b8e241613c"),
+                            Id = new Guid("e13bad23-7388-4fa2-b97d-761cb53614a4"),
                             Number = 11,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("e1f105b9-4f41-448a-9387-4add7a51ac1e"),
+                            Id = new Guid("5e442277-fcde-42bb-a8f9-87de46eae8d3"),
                             Number = 12,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("ff0a7525-5012-42d5-bb5d-4a7cdafdef2b"),
+                            Id = new Guid("b7692d52-b934-4425-9ff0-7758f6765231"),
                             Number = 13,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("14182ddb-29f3-488d-bd2d-59cf5fb13bc4"),
+                            Id = new Guid("52dd18a0-ddf4-4861-9285-0cdac4fb8fb3"),
                             Number = 14,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("5a05725d-7f7b-4e46-bd5a-74c73e25c668"),
+                            Id = new Guid("6726afe8-42c8-4e6a-8449-991788d05363"),
                             Number = 15,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("980b12c5-5f6a-4e82-8fd7-ed910aebf73d"),
+                            Id = new Guid("2b5cd9f6-43ba-4952-aa77-9bb15d1b69e6"),
                             Number = 16,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("4409b82a-e6ea-4f7e-95d1-7a0d31929696"),
+                            Id = new Guid("1ffcd6f1-5583-44d5-a28a-e49e762a9b15"),
                             Number = 17,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("2effb899-d239-489e-bbe9-56cda5f25296"),
+                            Id = new Guid("8639559c-32c4-4646-9914-24a4cce8d92a"),
                             Number = 18,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("7b7385ae-b37b-4fe8-af17-9f568d3f1044"),
+                            Id = new Guid("8deb73de-eb6e-4316-8153-439aa8568df7"),
                             Number = 19,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("ec70d24e-a608-4c06-9ff0-5fd4c7baa70e"),
+                            Id = new Guid("5045bc1d-f7ff-4e3e-8173-d06fb3162b91"),
                             Number = 20,
                             TheaterId = new Guid("a322aedb-053b-4507-895e-150390686b12")
                         },
                         new
                         {
-                            Id = new Guid("23f72b8e-241b-4b2e-99c1-6fbc071fd7ad"),
+                            Id = new Guid("680e36a4-2671-45c0-bfe1-48b8cbc0efdc"),
                             Number = 1,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("e794772a-b7e2-471d-bc3a-3a20525efe21"),
+                            Id = new Guid("91dd2eaa-1407-4cb2-9638-3c745f4f4e00"),
                             Number = 2,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("9da6859d-59fc-4f67-9101-16ca91ee497a"),
+                            Id = new Guid("cba60072-258c-4d5e-9ada-46db55705fff"),
                             Number = 3,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("b7a15d2b-eda6-475c-a44e-501def7989e3"),
+                            Id = new Guid("9e764c8d-671b-4625-b1e6-e4bf081b0280"),
                             Number = 4,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("dee35ed4-f5ce-43d9-8a4f-cd5e826c23af"),
+                            Id = new Guid("93be46e4-cdbc-4c39-807f-b32cac69c343"),
                             Number = 5,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("360eb32a-7388-4a67-ba58-038fdbe5c0da"),
+                            Id = new Guid("c560dd83-8fb5-4583-8ea0-69c814d1a13e"),
                             Number = 6,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("46c4464f-d299-40c7-b428-cf83ba0d6265"),
+                            Id = new Guid("0405dba9-4e06-441d-94de-8a159b59f24b"),
                             Number = 7,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("a84b416f-f3cc-4d73-a476-ec5d4ba426d3"),
+                            Id = new Guid("7c045a30-c0f6-4c22-9f1d-2ebc3694a1a7"),
                             Number = 8,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("0e74d50c-8180-4906-9997-308ef50cccc3"),
+                            Id = new Guid("9d25e738-8958-4b95-b428-a685b62e2cba"),
                             Number = 9,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("49a3ae4d-1642-4fd5-b81c-df350b52eb49"),
+                            Id = new Guid("3f4701a6-5863-4e2f-baee-e00f264c8a3a"),
                             Number = 10,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("c8e95ffb-74ea-4ea2-8aa6-910738781fb3"),
+                            Id = new Guid("2471c381-d1f1-4a29-bf46-558deed2c934"),
                             Number = 11,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("f7c1a61e-4426-4c8d-85d3-a3f0115c16b7"),
+                            Id = new Guid("7d3fbac3-1f1c-4063-936e-9158693fe042"),
                             Number = 12,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("19e495c1-5141-42cd-a03b-2eb26e81643b"),
+                            Id = new Guid("48d0970e-707f-4992-a9dc-1a987a69d1da"),
                             Number = 13,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("8dbfeb3a-9d63-46ef-9bcc-7a746fb3a71e"),
+                            Id = new Guid("69a602d5-c900-4e0e-8c19-65e6e6224340"),
                             Number = 14,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("807d3ac9-4c74-47ed-a898-5c0e7359f386"),
+                            Id = new Guid("3c040723-6d04-487f-9606-c40900346361"),
                             Number = 15,
                             TheaterId = new Guid("7f251baa-0f7f-4fb4-ba9b-e807553b1335")
                         },
                         new
                         {
-                            Id = new Guid("3f8c4d75-0342-4f29-aff8-a9328e52f9cf"),
+                            Id = new Guid("01943ad6-8a49-4e3e-bd76-92c9b1741188"),
                             Number = 1,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("eeed9281-171a-49df-bb0a-3850ed7b23d0"),
+                            Id = new Guid("173dd83d-f881-4be1-b83c-fa6063cb0c8e"),
                             Number = 2,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("20c04730-88a4-4eb9-a68d-33b233b36a60"),
+                            Id = new Guid("05eca72a-0b78-44fd-9d26-71c9c5675d68"),
                             Number = 3,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("d825620d-c3cf-42c2-9f8b-6909b5573d3d"),
+                            Id = new Guid("6552b201-8d54-4f06-b126-47ba9e6d1d02"),
                             Number = 4,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("b93310d3-8671-49f1-bea9-98d9fa59dc5f"),
+                            Id = new Guid("badc8d35-5741-45a7-9855-07e1e834695a"),
                             Number = 5,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("c46b41ea-aaf7-42c6-ac31-aa65e6280a24"),
+                            Id = new Guid("04190d0a-73a1-439c-9e0a-2f2c55702f56"),
                             Number = 6,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("a56731ac-ac02-4bac-ae63-bf3974901186"),
+                            Id = new Guid("e861f5b7-fa78-4ef7-9181-dc71817dffd1"),
                             Number = 7,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("5cefb832-8ad7-4ac8-9bf8-793632ac7818"),
+                            Id = new Guid("124a3273-6d2c-4e71-8a56-ce0026c0695e"),
                             Number = 8,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("c99a177d-04bd-498a-8d82-8f659646b405"),
+                            Id = new Guid("99af3ab1-2c1a-42d1-b4e6-c30998363320"),
                             Number = 9,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("637e84cb-1733-4675-90f1-3a9e0ce9849a"),
+                            Id = new Guid("2bb1b74c-adbb-4fc3-bc64-e3edc89eaf1a"),
                             Number = 10,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("17f1af7f-24c2-45b4-b497-82fe5efea046"),
+                            Id = new Guid("2a01d22c-5005-4f49-bf55-270cb969752c"),
                             Number = 11,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("e2f8a674-47cb-46d6-bea0-5dea3f1b2a27"),
+                            Id = new Guid("18226d1d-84b9-45ff-9c8f-62967759056f"),
                             Number = 12,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("08d36a13-b78d-4dec-bcee-d467fb8942aa"),
+                            Id = new Guid("faabec05-7d21-415b-8709-28f1e7f339ff"),
                             Number = 13,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("7451455f-79f1-46e7-8b7d-205f57ce354d"),
+                            Id = new Guid("fd51bdaf-6c28-4109-8790-5dd88c4a485a"),
                             Number = 14,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("5785c8ea-a67b-4386-abaa-7625a93e8062"),
+                            Id = new Guid("7ca18c4e-eac7-4456-a81a-1dc2d36757a7"),
                             Number = 15,
                             TheaterId = new Guid("7c7029a8-dbf9-4fa0-ad1e-b67f65be85eb")
                         },
                         new
                         {
-                            Id = new Guid("5ce748d0-798e-4e7c-9221-bf3072aff854"),
+                            Id = new Guid("30dd27bd-f1ae-4b17-b6d6-2f0a81fccf7c"),
                             Number = 1,
                             TheaterId = new Guid("d77c00d9-8913-4bad-83f9-5d9a054c81d1")
                         },
                         new
                         {
-                            Id = new Guid("5eab7373-6526-400b-bf30-df820617628b"),
+                            Id = new Guid("7d3cd869-1f03-4a69-8a01-381e769fdea3"),
                             Number = 2,
                             TheaterId = new Guid("d77c00d9-8913-4bad-83f9-5d9a054c81d1")
                         },
                         new
                         {
-                            Id = new Guid("a8e3fb7f-2153-410d-9966-9849b417da00"),
+                            Id = new Guid("db35c1e6-9059-4974-8300-aa2400a29880"),
                             Number = 3,
                             TheaterId = new Guid("d77c00d9-8913-4bad-83f9-5d9a054c81d1")
                         },
                         new
                         {
-                            Id = new Guid("a0fd7c63-94d8-47de-b223-7caca6795785"),
+                            Id = new Guid("f93c7c4c-4bbb-45cd-ba6d-4e4877621da3"),
                             Number = 4,
                             TheaterId = new Guid("d77c00d9-8913-4bad-83f9-5d9a054c81d1")
                         },
                         new
                         {
-                            Id = new Guid("b36f60b5-0ebe-4145-958a-233cc81ece2a"),
+                            Id = new Guid("c95396eb-5321-4123-bf94-8557ef3abcc3"),
                             Number = 5,
                             TheaterId = new Guid("d77c00d9-8913-4bad-83f9-5d9a054c81d1")
                         },
                         new
                         {
-                            Id = new Guid("05bdb40f-5afa-4d0c-8e84-8a052c52a846"),
+                            Id = new Guid("f7a5ebf4-ffe0-45db-b9c4-89962586b7bc"),
                             Number = 6,
                             TheaterId = new Guid("d77c00d9-8913-4bad-83f9-5d9a054c81d1")
                         },
                         new
                         {
-                            Id = new Guid("249c06b1-9061-47a7-85f6-455c915b7624"),
+                            Id = new Guid("88ab28f6-a737-40f5-8d3f-71036ad31286"),
                             Number = 7,
                             TheaterId = new Guid("d77c00d9-8913-4bad-83f9-5d9a054c81d1")
                         },
                         new
                         {
-                            Id = new Guid("001bf436-121a-4a24-8331-794070399c61"),
+                            Id = new Guid("a4bec694-1867-4983-a04f-59d41e93b899"),
                             Number = 8,
                             TheaterId = new Guid("d77c00d9-8913-4bad-83f9-5d9a054c81d1")
                         },
                         new
                         {
-                            Id = new Guid("00d53e1f-d8ca-42f4-a14c-9b0bd34bbd70"),
+                            Id = new Guid("ca20bf6b-3d65-46ff-8c44-f30701b30757"),
                             Number = 9,
                             TheaterId = new Guid("d77c00d9-8913-4bad-83f9-5d9a054c81d1")
                         },
                         new
                         {
-                            Id = new Guid("5ea85381-04ba-44d6-a345-e0c451198af4"),
+                            Id = new Guid("abda2c0e-a32f-4f9e-8d05-9cdb3f81f3d7"),
                             Number = 10,
                             TheaterId = new Guid("d77c00d9-8913-4bad-83f9-5d9a054c81d1")
                         });
@@ -788,6 +788,8 @@ namespace Cinema.Infrastructure.Migrations
 
                     b.HasIndex("ProjectionId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Tickets");
                 });
 
@@ -836,35 +838,35 @@ namespace Cinema.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("36b4b607-cd84-48fd-9836-c6675a7a7893"),
-                            Created = new DateTime(2023, 4, 12, 14, 1, 41, 253, DateTimeKind.Local).AddTicks(6195),
+                            Id = new Guid("2d6bf867-e024-4223-b2fc-63572cba211b"),
+                            Created = new DateTime(2023, 5, 4, 10, 57, 38, 137, DateTimeKind.Local).AddTicks(1368),
                             Email = "david.fejes@gmail.com",
                             FirstName = "David",
                             LastName = "Fejes",
                             Password = "davidfejes",
-                            Role = "LoggedUser",
+                            Role = "User",
                             Username = "davidfejes"
                         },
                         new
                         {
-                            Id = new Guid("4e557e83-e22b-4996-ab58-a7df54102d85"),
-                            Created = new DateTime(2023, 4, 12, 14, 1, 41, 253, DateTimeKind.Local).AddTicks(6334),
+                            Id = new Guid("62411419-99f5-4bb3-b934-e1ee5e281b65"),
+                            Created = new DateTime(2023, 5, 4, 10, 57, 38, 137, DateTimeKind.Local).AddTicks(1546),
                             Email = "stefan.bulaja@gmail.com",
                             FirstName = "Stefan",
                             LastName = "Bulaja",
                             Password = "stefanbulaja",
-                            Role = "LoggedUser",
+                            Role = "User",
                             Username = "stefanbulaja"
                         },
                         new
                         {
-                            Id = new Guid("e23bdbf7-77b5-42a8-bba3-43f12e448031"),
-                            Created = new DateTime(2023, 4, 12, 14, 1, 41, 253, DateTimeKind.Local).AddTicks(6350),
+                            Id = new Guid("16488b2b-14a8-431b-bf54-56c416a79137"),
+                            Created = new DateTime(2023, 5, 4, 10, 57, 38, 137, DateTimeKind.Local).AddTicks(1557),
                             Email = "andija.tasic@gmail.com",
                             FirstName = "Andrija",
                             LastName = "Tasic",
                             Password = "andrijatasic",
-                            Role = "LoggedUser",
+                            Role = "User",
                             Username = "andrijatasic"
                         });
                 });
@@ -969,6 +971,14 @@ namespace Cinema.Infrastructure.Migrations
                         .HasForeignKey("ProjectionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Cinema.Domain.AggregateModels.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TheaterProjectionType", b =>

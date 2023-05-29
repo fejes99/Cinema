@@ -10,7 +10,7 @@ public class ProjectionType
     public List<Theater> Theaters { get; private set; } = new();
     public List<Projection> Projections { get; private set; } = new();
 
-    public ProjectionType(ProjectionTypeId id, ProjectionTypeName name)
+    private ProjectionType(ProjectionTypeId id, ProjectionTypeName name)
     {
         Id = id;
         Name = name;

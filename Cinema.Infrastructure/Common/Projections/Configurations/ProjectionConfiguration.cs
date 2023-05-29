@@ -20,7 +20,7 @@ internal class ProjectionConfiguration : IEntityTypeConfiguration<Projection>
 
         builder.Property(projection => projection.Time).HasConversion(
             projectionTime => projectionTime.Value,
-            value => ProjectionTime.Create(value));
+            value => ProjectionTime.Seed(value));
 
         builder.Property(projection => projection.Price).HasConversion(
             projectionPrice => projectionPrice.Value,

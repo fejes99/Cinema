@@ -36,6 +36,13 @@ public class TicketRepository : ITicketRepository
     {
         var ticket = await context.Tickets
             .Include(ticket => ticket.User)
+            .Include(ticket => ticket.Seat)
+            .Include(ticket => ticket.Projection)
+                .ThenInclude(projection => projection.Movie)
+            .Include(ticket => ticket.Projection)
+                .ThenInclude(projection => projection.ProjectionType)
+            .Include(ticket => ticket.Projection)
+                .ThenInclude(projection => projection.Theater)
             .FirstOrDefaultAsync(ticket => ticket.Id == ticketId);
         return ticket!;
     }

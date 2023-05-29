@@ -1,5 +1,6 @@
 ﻿using Cinema.Application.Common.Movies.Dtos;
 using Cinema.Application.Common.Movies.UseCases;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
@@ -17,15 +18,18 @@ public class MovieController : ControllerBase
     }
 
     [HttpGet]
+    [AllowAnonymous]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<List<MovieDto>>> GetMovies()
     {
+
         List<MovieDto> movies = await movieUseCase.GetMovies();
         return Ok(movies);
     }
 
     [HttpGet("{id}")]
+    [AllowAnonymous]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<MovieDto>> GetMovie([Required] Guid id)

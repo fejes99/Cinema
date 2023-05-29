@@ -14,6 +14,8 @@ public class SeatRepository : ISeatRepository
 
     public async Task<List<Seat>> GetAllAsync()
     {
-        return await context.Seats.ToListAsync();
+        return await context.Seats
+            .OrderBy(seat => seat.Number)
+            .ToListAsync();
     }
 }

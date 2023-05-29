@@ -1,5 +1,4 @@
 ﻿using Cinema.Application.Common.Projections.Dtos;
-using Cinema.Application.Common.Theaters.Dtos;
 
 namespace Cinema.Application.Common.Movies.Dtos;
 
@@ -14,5 +13,5 @@ public class MovieDto
     public int Year { get; set; }
     public string TrailerUrl { get; set; } = string.Empty;
     public string? Description { get; set; }
-    public List<MovieProjectionDto> Projections { get; internal set; } = new();
+    public List<ProjectionDetailsDto> Projections { get; internal set; } = new();
 }

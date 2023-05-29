@@ -17,6 +17,23 @@ public record ProjectionTime
         return new ProjectionTime(value);
     }
 
+    public static ProjectionTime Seed(DateTime value)
+    {
+        return new ProjectionTime(value);
+    }
+
+    public bool OverlapsWith(DateTime startTime, DateTime endTime)
+    {
+        DateTime thisStart = Value;
+        DateTime thisEnd = Value.Add(Value - Value.Date);
+
+        DateTime otherStart = startTime;
+        DateTime otherEnd = endTime;
+
+        bool overlaps = thisStart < otherEnd && thisEnd > otherStart;
+
+        return overlaps;
+    }
 
     public override string ToString() => Value.ToString("ss:mm:hh dd/MM/yyyy");
 

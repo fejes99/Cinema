@@ -1,10 +1,12 @@
 ﻿using Cinema.Application.Common.Theaters.Dtos;
 using Cinema.Application.Common.Theaters.UseCases;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.Presentation.Controllers;
 
 [Route("api/theaters")]
+[AllowAnonymous]
 [ApiController]
 public class TheaterController : ControllerBase
 {

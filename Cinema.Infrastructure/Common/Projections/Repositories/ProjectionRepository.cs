@@ -32,8 +32,10 @@ public class ProjectionRepository : IProjectionRepository
             .Include(projection => projection.Movie)
             .Include(projection => projection.ProjectionType)
             .Include(projection => projection.Theater)
+                .ThenInclude(theater => theater.ProjectionTypes)
             .Include(projection => projection.Tickets)
                 .ThenInclude(ticket => ticket.User)
+            .OrderBy(projection => projection.Time)
             .ToListAsync();
     }
 
@@ -43,6 +45,7 @@ public class ProjectionRepository : IProjectionRepository
             .Include(projection => projection.Movie)
             .Include(projection => projection.ProjectionType)
             .Include(projection => projection.Theater)
+                .ThenInclude(theater => theater.Seats.OrderBy(seat => seat.Number))
             .Include(projection => projection.Tickets)
                 .ThenInclude(ticket => ticket.User)
             .FirstOrDefaultAsync(projection => projection.Id == projectionId);
@@ -58,6 +61,7 @@ public class ProjectionRepository : IProjectionRepository
     {
         context.Update(projection);
         await SaveChangesAsync();
-        return projection;
+        var updatedProjetion = await GetByIdAsync(projection.Id);
+        return updatedProjetion!;
     }
 }

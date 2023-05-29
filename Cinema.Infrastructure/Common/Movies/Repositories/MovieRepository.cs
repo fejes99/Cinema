@@ -29,11 +29,13 @@ public class MovieRepository : IMovieRepository
     public async Task<List<Movie>> GetAllAsync()
     {
         return await context.Movies
-            .Include(movie => movie.Projections)
-            .ThenInclude(projection => projection.ProjectionType)
-            .ThenInclude(projection => projection.Theaters)
+            .Include(movie => movie.Projections).ThenInclude(projection => projection.ProjectionType)
+            .Include(movie => movie.Projections).ThenInclude(projection => projection.Theater).ThenInclude(theater => theater.Seats.OrderBy(seat => seat.Number))
+            .Include(movie => movie.Projections).ThenInclude(projection => projection.Tickets).ThenInclude(ticket => ticket.User)
+            .OrderBy(movie => movie.Name)
             .ToListAsync();
     }
+
 
     public async Task<Movie> GetByIdAsync(MovieId movieId)
     {

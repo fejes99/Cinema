@@ -81,7 +81,7 @@ internal class MovieSeed : IEntityTypeConfiguration<Movie>
                 MovieDescription.Create("Šarmantni lopov i grupa nesvakidašnjih avanturista upustili su se u epsku pljačku kako bi vratili izgubljenu relikviju. Međutim, kada se sukobe sa pogrešnim ljudima, stvari kreću po zlu.")
                 ),
             Movie.Create(
-                new MovieName("Astérix & Obélix: L'Empire du Milieu"),
+                new MovieName("Asterix & Obelix: L'Empire du Milieu"),
                 MovieDirector.Create("Guillaume Canet"),
                 MovieDuration.Create(112),
                 new MovieDistributor("Blitz Film Video doo"),

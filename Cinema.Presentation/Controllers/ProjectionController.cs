@@ -1,5 +1,6 @@
 ﻿using Cinema.Application.Common.Projections.Dtos;
 using Cinema.Application.Common.Projections.UseCases;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
@@ -17,15 +18,17 @@ public class ProjectionController : ControllerBase
     }
 
     [HttpGet]
+    [AllowAnonymous]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<List<ProjectionDto>>> GetProjections()
+    public async Task<ActionResult<List<ProjectionDetailsDto>>> GetProjections()
     {
-        List<ProjectionDto> projections = await projectionUseCase.GetProjections();
+        List<ProjectionDetailsDto> projections = await projectionUseCase.GetProjections();
         return Ok(projections);
     }
 
     [HttpGet("{id}")]
+    [AllowAnonymous]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ProjectionDetailsDto>> GetProjection([Required] Guid id)
