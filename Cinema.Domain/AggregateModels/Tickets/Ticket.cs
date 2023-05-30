@@ -2,7 +2,6 @@
 using Cinema.Domain.AggregateModels.Projections.ValueObjects;
 using Cinema.Domain.AggregateModels.Theaters.Seats;
 using Cinema.Domain.AggregateModels.Theaters.Seats.ValueObjects;
-using Cinema.Domain.AggregateModels.Tickets.Exceptions;
 using Cinema.Domain.AggregateModels.Tickets.ValueObjects;
 using Cinema.Domain.AggregateModels.Users;
 using Cinema.Domain.AggregateModels.Users.ValueObjects;
@@ -29,15 +28,7 @@ public class Ticket
         ProjectionId = projectionId;
     }
 
-    public static Ticket CreateForProjection(UserId userId, SeatId seatId, Projection projection)
-    {
-        if (!projection.CanSellTickets())
-        {
-            throw new TicketProjectionTimeException("Projection is not valid for selling tickets.");
-        }
-
-        return new (userId, seatId, projection.Id);
-    }
+    public static Ticket CreateForProjection(UserId userId, SeatId seatId, Projection projection) => new (userId, seatId, projection.Id);
 
 
     public void Update(SeatId seatId)

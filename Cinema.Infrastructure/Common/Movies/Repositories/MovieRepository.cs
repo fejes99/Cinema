@@ -32,6 +32,7 @@ public class MovieRepository : IMovieRepository
             .Include(movie => movie.Projections).ThenInclude(projection => projection.ProjectionType)
             .Include(movie => movie.Projections).ThenInclude(projection => projection.Theater).ThenInclude(theater => theater.Seats.OrderBy(seat => seat.Number))
             .Include(movie => movie.Projections).ThenInclude(projection => projection.Tickets).ThenInclude(ticket => ticket.User)
+            .Include(movie => movie.Projections).ThenInclude(projection => projection.Tickets).ThenInclude(ticket => ticket.Seat)
             .OrderBy(movie => movie.Name)
             .ToListAsync();
     }
@@ -40,9 +41,9 @@ public class MovieRepository : IMovieRepository
     public async Task<Movie> GetByIdAsync(MovieId movieId)
     {
         var movie = await context.Movies
-            .Include(movie => movie.Projections)
-            .ThenInclude(projection => projection.ProjectionType)
-            .ThenInclude(projection => projection.Theaters)
+            .Include(movie => movie.Projections).ThenInclude(projection => projection.ProjectionType)
+            .Include(movie => movie.Projections).ThenInclude(projection => projection.Theater)
+            .Include(movie => movie.Projections).ThenInclude(projection => projection.Tickets).ThenInclude(ticket => ticket.Seat)
             .FirstOrDefaultAsync(movie => movie.Id == movieId);
         return movie ?? new Movie();
     }

@@ -3,10 +3,8 @@ using Cinema.Application.Common.Auth.UseCases;
 using Cinema.Application.Common.Users.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
 using System.Text.Json;
 using System.Text;
-using Cinema.Domain.AggregateModels.Users.ValueObjects;
 
 namespace Cinema.Presentation.Controllers;
 

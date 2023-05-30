@@ -1,6 +1,8 @@
-﻿using Cinema.Application.Common.Tickets.Dtos;
+﻿using Cinema.Application.Common.Projections.Exceptions;
+using Cinema.Application.Common.Tickets.Dtos;
 using Cinema.Application.Common.Tickets.Helpers;
 using Cinema.Domain.AggregateModels.Projections;
+using Cinema.Domain.AggregateModels.Projections.Exceptions;
 using Cinema.Domain.AggregateModels.Projections.ValueObjects;
 using Cinema.Domain.AggregateModels.Theaters.Seats.ValueObjects;
 using Cinema.Domain.AggregateModels.Tickets;
@@ -23,7 +25,19 @@ public class TicketUseCase : ITicketUseCase
     public async Task<TicketDto> CreateTicket(TicketCreateDto ticketCreateDto)
     {
         Projection projection = await projectionRepository.GetByIdAsync(new ProjectionId(ticketCreateDto.ProjectionId));
+        var issold = projection.CheckIsSold();
+
+         if (projection.CheckIsSold())
+        {
+            await projectionRepository.UpdateAsync(projection);
+            throw new ProjectionIsSoldException("Projection is sold out.");
+
+        }
+
+        if (!projection.CanSellTickets()) throw new ProjectionTimeRangeException("Projection is not valid for selling tickets.");
+
         Ticket ticketToCreate = Ticket.CreateForProjection(new UserId(ticketCreateDto.UserId), new SeatId(ticketCreateDto.SeatId), projection);
+        await projectionRepository.UpdateAsync(projection.UpdateIsSold());
 
         Ticket createdTicket = await repository.CreateAsync(ticketToCreate);
         TicketDto createdTicketDto = createdTicket.TicketToDto();

@@ -78,8 +78,25 @@ public class Projection
         if(Tickets.Any()) IsDeleted = true;
     }
 
-    public bool CanSellTickets()
+    public bool CanSellTickets() => !IsDeleted && !IsSold &&  Time.Value  > DateTime.UtcNow;
+
+
+    public bool CheckIsSold()
     {
-        return !IsDeleted && !IsSold && Time.Value > DateTime.UtcNow;
+        var seats = Theater.Seats.Count;
+        var tickets = Tickets.Count;
+        var sold = seats <= tickets;
+
+        return sold;
     }
+
+    public Projection UpdateIsSold()
+    {
+        var seats = Theater.Seats.Count;
+        var tickets = Tickets.Count;
+        var sold = seats - 1 <= tickets;
+        IsSold = sold;
+        return this;
+    }
+
 }

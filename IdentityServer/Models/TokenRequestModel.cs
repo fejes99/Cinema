@@ -1,7 +1,4 @@
-﻿using Cinema.Application.Common.Users.Dtos;
-using Microsoft.AspNetCore.Identity;
-
-namespace IdentityServer.Models;
+﻿namespace IdentityServer.Models;
 
 public class TokenRequestModel
 {

@@ -39,7 +39,8 @@ public static class TicketMapper
         {
             Id = ticket.Id.Value,
             Created = ticket.Created.Value,
-            User = ticket.User.UserToProjectionUserDto()
+            User = ticket.User.UserToProjectionUserDto(),
+            Seat = ticket.Seat.SeatToDto()
 
         };
     }

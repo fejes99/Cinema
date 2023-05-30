@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="AggregateModels\Theaters\Exceptions\" />
+    <Folder Include="AggregateModels\Tickets\Exceptions\" />
   </ItemGroup>
 
 </Project>
