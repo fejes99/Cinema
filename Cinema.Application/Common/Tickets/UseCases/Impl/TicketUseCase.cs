@@ -25,7 +25,6 @@ public class TicketUseCase : ITicketUseCase
     public async Task<TicketDto> CreateTicket(TicketCreateDto ticketCreateDto)
     {
         Projection projection = await projectionRepository.GetByIdAsync(new ProjectionId(ticketCreateDto.ProjectionId));
-        var issold = projection.CheckIsSold();
 
          if (projection.CheckIsSold())
         {
@@ -46,6 +45,13 @@ public class TicketUseCase : ITicketUseCase
 
     public async Task DeleteTicket(Guid id)
     {
+        Ticket ticket = await repository.GetByIdAsync(new TicketId(id));
+        Projection projection = ticket.Projection;
+
+        projection.Tickets.Remove(ticket);
+
+        await projectionRepository.UpdateAsync(projection.UpdateIsSold());
+
         await repository.DeleteAsync(new TicketId(id));
     }
 
@@ -60,6 +66,13 @@ public class TicketUseCase : ITicketUseCase
     {
         List<Ticket> tickets = await repository.GetAllAsync();
         List<TicketDto> ticketDtos = tickets.Select(ticket => ticket.TicketToDto()).ToList();
+        return ticketDtos;
+    }
+
+    public async Task<List<TicketDetailsDto>> GetTicketsByUserId(Guid userId)
+    {
+        List<Ticket> tickets = await repository.GetAllByUserIdAsync(new UserId(userId));
+        List<TicketDetailsDto> ticketDtos = tickets.Select(ticket => ticket.TicketToDetailsDto()).ToList();
         return ticketDtos;
     }
 

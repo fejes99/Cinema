@@ -27,6 +27,15 @@ public class TicketController : ControllerBase
         return Ok(tickets);
     }
 
+    [HttpGet("user/{userId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<List<TicketDetailsDto>>> GetTicketsByUserId([Required] Guid userId)
+    {
+        List<TicketDetailsDto> tickets = await ticketUseCase.GetTicketsByUserId(userId);
+        return Ok(tickets);
+    }
+
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
