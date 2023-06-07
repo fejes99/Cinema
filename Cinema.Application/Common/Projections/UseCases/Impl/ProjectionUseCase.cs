@@ -1,5 +1,6 @@
-﻿using Cinema.Application.Common.Projections.Dtos;
-using Cinema.Application.Common.Projections.Exceptions;
+﻿
+using Cinema.Application.Abstractions;
+using Cinema.Application.Common.Projections.Dtos;
 using Cinema.Application.Common.Projections.Helpers;
 using Cinema.Domain.AggregateModels.Movies;
 using Cinema.Domain.AggregateModels.Movies.ValueObjects;
@@ -37,7 +38,7 @@ public class ProjectionUseCase : IProjectionUseCase
     public async Task DeleteProjection(Guid id)
     {
         Projection projection = await repository.GetByIdAsync(new ProjectionId(id));
-        if (projection == null) throw new ProjectionNotFoundException("Projection not found.");
+        if (projection == null) throw new NotFoundException("Projection not found.");
         projection.Delete();
 
         if (projection.IsDeleted)

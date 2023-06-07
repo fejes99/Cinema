@@ -9,4 +9,5 @@ public class ProjectionMovieDto
     public string Distributor { get; set; } = string.Empty;
     public string Country { get; set; } = string.Empty;
     public int Year { get; set; }
+    public string TrailerUrl { get; set; } = string.Empty;
 }

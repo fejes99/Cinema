@@ -1,4 +1,6 @@
-﻿using Cinema.Application.Common.Auth.Dtos;
+﻿using BCrypt.Net;
+using Cinema.Application.Abstractions;
+using Cinema.Application.Common.Auth.Dtos;
 using Cinema.Application.Common.Auth.Exceptions;
 using Cinema.Application.Common.Users.Dtos;
 using Cinema.Application.Common.Users.Helpers;
@@ -15,10 +17,12 @@ public class AuthUseCase : IAuthUseCase
     }
     public async Task<UserDto> Login(LoginDataDto loginDataDto)
     {
-        // TODO: Implement password hasher
         User user = await userRepository.GetByEmailAsync(loginDataDto.Email);
+        if (user == null) throw new NotFoundException("User with that email dont exist, please try again");
 
-        if (user.Password.Value != loginDataDto.Password) throw new InvalidPasswordException("Wrong password");
+        var verified = BCrypt.Net.BCrypt.Verify(loginDataDto.Password, user.Password.Value);
+
+        if (!verified) throw new InvalidPasswordException("Invalid passowrd, please try again.");
 
         return user.UserToDto();
     }
@@ -30,6 +34,13 @@ public class AuthUseCase : IAuthUseCase
 
     public async Task<UserDto> Register(RegisterDataDto registerDataDto)
     {
+        var userByUsername = await userRepository.GetByUsernameAsync(registerDataDto.Username);
+        if (userByUsername != null) throw new UserAlreadyExistsException("User with that username already exists");
+
+        var userByEmail = await userRepository.GetByEmailAsync(registerDataDto.Email);
+        if (userByEmail != null) throw new UserAlreadyExistsException("User with that email already exists");
+
+
         User user = await userRepository.CreateAsync(registerDataDto.registerDtoToUser());
 
         return user.UserToDto();

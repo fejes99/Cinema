@@ -2,7 +2,7 @@
 
 namespace Cinema.Domain.AggregateModels.Projections.Exceptions;
 
-internal class ProjectionTimeOverlapException : DomainException
+public class ProjectionTimeOverlapException : DomainException
 {
     public ProjectionTimeOverlapException(string message) : base(message)
     {

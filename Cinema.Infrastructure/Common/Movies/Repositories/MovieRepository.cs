@@ -42,7 +42,8 @@ public class MovieRepository : IMovieRepository
     {
         var movie = await context.Movies
             .Include(movie => movie.Projections).ThenInclude(projection => projection.ProjectionType)
-            .Include(movie => movie.Projections).ThenInclude(projection => projection.Theater)
+            .Include(movie => movie.Projections).ThenInclude(projection => projection.Theater).ThenInclude(theater => theater.Seats.OrderBy(seat => seat.Number))
+            .Include(movie => movie.Projections).ThenInclude(projection => projection.Tickets).ThenInclude(ticket => ticket.User)
             .Include(movie => movie.Projections).ThenInclude(projection => projection.Tickets).ThenInclude(ticket => ticket.Seat)
             .FirstOrDefaultAsync(movie => movie.Id == movieId);
         return movie ?? new Movie();

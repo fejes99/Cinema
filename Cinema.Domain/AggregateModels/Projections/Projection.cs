@@ -74,7 +74,6 @@ public class Projection
 
     public void Delete()
     {
-        if (IsDeleted) throw new ProjectionIsDeletedAlreadyException("Projection is already deleted.");
         if(Tickets.Any()) IsDeleted = true;
     }
 

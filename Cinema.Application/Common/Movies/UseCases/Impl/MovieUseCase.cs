@@ -1,5 +1,5 @@
-﻿using Cinema.Application.Common.Movies.Dtos;
-using Cinema.Application.Common.Movies.Exceptions;
+﻿using Cinema.Application.Abstractions;
+using Cinema.Application.Common.Movies.Dtos;
 using Cinema.Application.Common.Movies.Helpers;
 using Cinema.Domain.AggregateModels.Movies;
 using Cinema.Domain.AggregateModels.Movies.ValueObjects;
@@ -25,7 +25,7 @@ public class MovieUseCase : IMovieUseCase
     public async Task DeleteMovie(Guid id)
     {
         Movie movie = await repository.GetByIdAsync(new MovieId(id));
-        if (movie.HasDefaultValues()) throw new MovieNotFoundException("Movie with that id dont exist");
+        if (movie.HasDefaultValues()) throw new NotFoundException("Movie with that id dont exist");
         movie.Delete();
         
         if(movie.IsDeleted)
@@ -48,7 +48,7 @@ public class MovieUseCase : IMovieUseCase
     public async Task<MovieDto> GetMovieById(Guid id)
     {
         Movie movie = await repository.GetByIdAsync(new MovieId(id));
-        if (movie.HasDefaultValues()) throw new MovieNotFoundException("Movie with that id dont exist");
+        if (movie.HasDefaultValues()) throw new NotFoundException("Movie with that id dont exist");
 
         MovieDto movieDto = movie.MovieToDto();
         return movieDto;

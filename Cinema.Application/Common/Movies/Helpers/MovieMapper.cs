@@ -34,7 +34,8 @@ public static class MovieMapper
             Duration = movie.Duration.Value,
             Distributor = movie.Distributor!.Value,
             Country = movie.Country.Value,
-            Year = movie.Year.Value
+            Year = movie.Year.Value,
+            TrailerUrl = movie.TrailerUrl!.Value,
         };
     }
 

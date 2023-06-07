@@ -1,5 +1,4 @@
-﻿using Cinema.Domain.AggregateModels.Movies.Exceptions;
-using Cinema.Domain.AggregateModels.Movies.ValueObjects;
+﻿using Cinema.Domain.AggregateModels.Movies.ValueObjects;
 using Cinema.Domain.AggregateModels.Projections;
 
 namespace Cinema.Domain.AggregateModels.Movies;
@@ -83,7 +82,6 @@ public class Movie
 
     public void Delete()
     {
-        if (IsDeleted) throw new MovieIsDeletedAlreadyException("Movie is already deleted.");
         if (Projections.Any()) IsDeleted = true; 
     }
 

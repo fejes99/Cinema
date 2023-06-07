@@ -1,6 +1,5 @@
 ﻿using Cinema.Domain.AggregateModels.Projections;
 using Cinema.Domain.AggregateModels.Projections.ValueObjects;
-using Cinema.Infrastructure.Common.Helper;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Infrastructure.Common.Projections.Repositories;
@@ -32,10 +31,10 @@ public class ProjectionRepository : IProjectionRepository
         return await context.Projections
             .Include(projection => projection.Movie)
             .Include(projection => projection.ProjectionType)
-            .Include(projection => projection.Theater).ThenInclude(theater => theater.Seats)
+            .Include(projection => projection.Theater).ThenInclude(theater => theater.Seats.OrderBy(seat => seat.Number))
             .Include(projection => projection.Theater).ThenInclude(theater => theater.ProjectionTypes.OrderBy(projectionType => projectionType.Name))
             .Include(projection => projection.Tickets).ThenInclude(ticket => ticket.User)
-            .Include(projection => projection.Tickets).ThenInclude(ticket => ticket.Seat)
+            .Include(projection => projection.Tickets.OrderBy(ticket => ticket.Seat.Number)).ThenInclude(ticket => ticket.Seat)
             .OrderBy(projection => projection.Time)
             .ToListAsync();
     }

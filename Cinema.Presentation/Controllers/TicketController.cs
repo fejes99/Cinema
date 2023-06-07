@@ -7,7 +7,6 @@ using System.ComponentModel.DataAnnotations;
 namespace Cinema.Presentation.Controllers;
 
 [Route("api/tickets")]
-[AllowAnonymous]
 [ApiController]
 public class TicketController : ControllerBase
 {
